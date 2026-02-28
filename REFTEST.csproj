@@ -1,0 +1,148 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>REFTEST</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>REFTEST</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.reftest</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\02HomePage.xaml.cs">
+	    <DependentUpon>02HomePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01MainPage.xaml.cs">
+	    <DependentUpon>01MainPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Ajudas_para_testes\01TesteReacaoAJUDA.xaml.cs">
+	    <DependentUpon>01TesteReacaoAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\Ajudas_para_testes\01steReacaoAJUDA.xaml.cs">
+	    <DependentUpon>01steReacaoAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\Ajudas_para_testes\02TesteVisaoAJUDA.xaml.cs">
+	    <DependentUpon>02TesteVisaoAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\Ajudas_para_testes\03TesteContarAJUDA.xaml.cs">
+	    <DependentUpon>03TesteContarAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\Ajudas_para_testes\04TesteEscolherAJUDA.xaml.cs">
+	    <DependentUpon>04TesteEscolherAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\Ajudas_para_testes\05TesteCoresAJUDA.xaml.cs">
+	    <DependentUpon>05TesteCoresAJUDA.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\TesteReacao.xaml.cs">
+	    <DependentUpon>TesteReacao.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\04Teste2.xaml.cs">
+	    <DependentUpon>04Teste2.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\01TesteReacao.xaml.cs">
+	    <DependentUpon>01TesteReacao.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\02TesteVisao.xaml.cs">
+	    <DependentUpon>02TesteVisao.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\03TesteContar.xaml.cs">
+	    <DependentUpon>03TesteContar.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\04TesteEscolher.xaml.cs">
+	    <DependentUpon>04TesteEscolher.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\Testes\05TesteCores.xaml.cs">
+	    <DependentUpon>05TesteCores.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\02HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\02TesteVisaoAJUDA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\03TesteContarAJUDA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\04TesteEscolherAJUDA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\05TesteCoresAJUDA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\01steReacaoAJUDA.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\TesteReacao.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\04Teste2.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\05Teste3.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\06Teste4.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\07Teste5.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

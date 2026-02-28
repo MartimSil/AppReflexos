@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.HomePage">
+    <VerticalStackLayout Spacing="10" Padding="20" VerticalOptions="Center">
+
+        <Button Text="Reaction Test" Clicked="OnTesteReacaoAJUDAClicked" />
+        <Button Text="Vision Test" Clicked="OnTesteVisaoAJUDAClicked" />
+        <Button Text="Blind Counting Test" Clicked="OnTesteContarAJUDAClicked" />
+        <Button Text="Choice Test" Clicked="OnTesteEscolherAJUDAClicked" />
+        <Button Text="Color Test" Clicked="OnTesteCoresAJUDAClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>
