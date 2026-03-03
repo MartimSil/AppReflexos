@@ -3,22 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="REFTEST.Pages.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30,0" Spacing="25">
+	<ScrollView>
+		<VerticalStackLayout Padding="30,0" Spacing="25">
 
-            <Label Text="RefTest"
+			<Label Text="RefTest"
                    HorizontalTextAlignment="Center"
                    FontSize="24"
                    FontAttributes="Bold" />
 
-            <Label Text="Welcome to our app"
+			<Label Text="Welcome to our app"
                    Style="{StaticResource SubHeadline}"
                    SemanticProperties.HeadingLevel="Level1" />
 
-            <Button Text="Ir para Home"
+			<Button Text="Ir para Home"
                     Clicked="OnGoToHomeClicked"
                     SemanticProperties.HeadingLevel="Level1" />
 
-        </VerticalStackLayout>
-    </ScrollView>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

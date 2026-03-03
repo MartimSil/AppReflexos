@@ -9,10 +9,6 @@ public partial class TesteReacaoAJUDA : ContentPage
     {
         InitializeComponent();
     }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePage());
-    }
     private async void OnTesteReacaoClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new TesteReacao());

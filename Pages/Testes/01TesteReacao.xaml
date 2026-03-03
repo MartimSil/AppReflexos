@@ -21,5 +21,22 @@
                 Margin="0, 0, 0, 20"
                 BackgroundColor="#512BD4"
                 TextColor="White" />
+        <VerticalStackLayout VerticalOptions="Center">
+        </VerticalStackLayout>
+
+        <ImageButton x:Name="btnAjuda"
+                 BackgroundColor="DeepskyBlue"
+                 CornerRadius="25"
+                 WidthRequest="50"
+                 HeightRequest="50"
+                 Padding="10"
+                 Margin="10"
+                 HorizontalOptions="End"
+                 VerticalOptions="Start"
+                 Clicked="OnHelpButtonClicked">
+            <ImageButton.Shadow>
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+        </ImageButton>
     </Grid>
 </ContentPage>
