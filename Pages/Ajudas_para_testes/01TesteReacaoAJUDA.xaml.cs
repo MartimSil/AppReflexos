@@ -1,20 +1,18 @@
-using System.Diagnostics;
 using REFTEST.Pages.Testes;
 
-namespace REFTEST.Pages.Ajudas_para_testes;
-
-public partial class TesteReacaoAJUDA : ContentPage
+namespace REFTEST.Pages.Ajudas_para_testes
 {
-    public TesteReacaoAJUDA()
+    public partial class TesteReacaoAJUDA : ContentPage
     {
-        InitializeComponent();
-    }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePage());
-    }
-    private async void OnTesteReacaoClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteReacao());
+        public TesteReacaoAJUDA()
+        {
+            InitializeComponent();
+        }
+
+        // Esta é a função que estava a faltar e causava o erro XC0002
+        private async void OnVoltarClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync(); // Volta para a página anterior
+        }
     }
 }

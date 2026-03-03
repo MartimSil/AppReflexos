@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="REFTEST.Pages.Ajudas_para_testes.TesteVisaoAJUDA"
-             Title="Ajuda">
+             Title="Test Vision HELP">
 
     <Grid RowDefinitions="Auto, *, Auto" Padding="30">
 

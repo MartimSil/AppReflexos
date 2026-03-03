@@ -1,4 +1,4 @@
-using REFTEST.Pages.Ajudas_para_testes;
+using REFTEST.Pages.Testes;
 
 namespace REFTEST.Pages
 {
@@ -9,29 +9,29 @@ namespace REFTEST.Pages
             InitializeComponent();
         }
 
-        private async void OnTesteReacaoAJUDAClicked(object sender, EventArgs e)
+        private async void OnTesteReacaoClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TesteReacaoAJUDA());
+            await Navigation.PushAsync(new TesteReacao());
         }
 
-        private async void OnTesteVisaoAJUDAClicked(object sender, EventArgs e)
+        private async void OnTesteVisaoClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TesteVisaoAJUDA());
+            await Navigation.PushAsync(new TesteVisao());
         }
 
-        private async void OnTesteContarAJUDAClicked(object sender, EventArgs e)
+        private async void OnTesteContarClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TesteContarAJUDA());
+            await Navigation.PushAsync(new TesteContar());
         }
 
-        private async void OnTesteEscolherAJUDAClicked(object sender, EventArgs e)
+        private async void OnTesteEscolherClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TesteEscolherAJUDA());
+            await Navigation.PushAsync(new TesteEscolher());
         }
 
-        private async void OnTesteCoresAJUDAClicked(object sender, EventArgs e)
+        private async void OnTesteCoresClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TesteCoresAJUDA());
+            await Navigation.PushAsync(new TesteCores());
         }
     }
 }
