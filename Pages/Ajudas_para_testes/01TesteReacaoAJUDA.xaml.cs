@@ -12,5 +12,8 @@ namespace REFTEST.Pages.Ajudas_para_testes
         {
             await Navigation.PopAsync();
         }
+    private async void OnTesteReacaoClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new TesteReacao());
     }
 }
