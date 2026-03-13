@@ -11,7 +11,6 @@
             Text="O teu objetivo é simples, mas a execução exige uma precisão de mestre!"
             FontSize="20"
             FontAttributes="Bold"
-            TextColor="White"
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             Margin="0,0,0,15"/>
@@ -21,37 +20,31 @@
                 <Label 
                     Text="Observa a Meta: Antes de começares, vê qual é o tempo objetivo definido pela aplicação (ex: 10 segundos)."
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
 
                 <Label 
                     Text="O Início: Clica no botão 'Começar'. O cronómetro aparecerá no ecrã e a contagem inicia-se do zero."
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
 
                 <Label 
                     Text="Quando o cronómetro atingir os 3 segundos, os números vão desaparecer!"
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
 
                 <Label 
                     Text="A partir daqui, estás por tua conta. Mantém o ritmo e continua a contar mentalmente."
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
 
                 <Label 
                     Text="Clica no botão 'Parar' exatamente quando achares que atingiste o tempo objetivo."
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
 
                 <Label 
                     Text="O cronómetro volta a aparecer e revela quão perto (ou longe) ficaste do objetivo!"
                     FontSize="18"
-                    TextColor="White"
                     HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
         </ScrollView>

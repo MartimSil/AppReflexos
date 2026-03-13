@@ -8,7 +8,13 @@ namespace REFTEST.Pages
         {
             InitializeComponent();
         }
+        //Pagina Principal
+        private async void OnMainPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
 
+        //Testes
         private async void OnTesteReacaoClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteReacao());
@@ -33,5 +39,6 @@ namespace REFTEST.Pages
         {
             await Navigation.PushAsync(new TesteCores());
         }
+
     }
 }
