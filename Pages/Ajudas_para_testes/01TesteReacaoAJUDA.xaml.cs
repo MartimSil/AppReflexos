@@ -10,10 +10,11 @@ namespace REFTEST.Pages.Ajudas_para_testes
         }
         private async void OnVoltarClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new HomePage());
         }
-    private async void OnTesteReacaoClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteReacao());
+        private async void OnTesteReacaoClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteReacao());
+        }
     }
 }

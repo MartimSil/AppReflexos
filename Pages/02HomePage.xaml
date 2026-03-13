@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="REFTEST.Pages.HomePage">
-    <VerticalStackLayout Spacing="10" Padding="20" VerticalOptions="Center">
 
-        <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked" />
-        <Button Text="Vision Test" Clicked="OnTesteVisaoClicked" />
-        <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked" />
-        <Button Text="Choice Test" Clicked="OnTesteEscolherClicked" />
-        <Button Text="Color Test" Clicked="OnTesteCoresClicked" />
+    <Grid RowDefinitions="*, Auto" Padding="20">
 
-    </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
+            <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked"/>
+            <Button Text="Vision Test" Clicked="OnTesteVisaoClicked"/>
+            <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked"/>
+            <Button Text="Choice Test" Clicked="OnTesteEscolherClicked"/>
+            <Button Text="Color Test" Clicked="OnTesteCoresClicked"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+            <Button Text="Main" BackgroundColor="DeepSkyBlue" TextColor="White" Clicked="OnMainPageClicked" />
+            <!--<Button Text="Status" BackgroundColor="DeepSkyBlue" Clicked="OnMenuClicked" />-->
+            <!--<Button Text="Settings" BackgroundColor="DeepSkyBlue" Clicked="OnSettingsClicked" />-->
+        </HorizontalStackLayout>
+
+    </Grid>
 </ContentPage>
