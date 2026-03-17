@@ -72,7 +72,7 @@
                     BackgroundColor="MediumPurple"
                     TextColor="White"
                     FontSize="18"
-                    Clicked="OnTesteContarClicked" />
+                    Clicked="OnGoToTesteContarClicked" />
         </HorizontalStackLayout>
     </Grid>
 </ContentPage>

@@ -5,38 +5,38 @@
 
     <Grid>
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Test Choosing" 
-                   FontSize="32" />
+            <Label Text="Test Choosing" FontSize="32" />
         </VerticalStackLayout>
 
-        <Button Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
-                HorizontalOptions="Center" 
-                VerticalOptions="End"
-                WidthRequest="180"
-                HeightRequest="50"
-                CornerRadius="25"
-                Margin="0, 0, 0, 20"
-                BackgroundColor="#512BD4"
-                TextColor="White"/>
-        
-        <Button Text="Nota"
-                WidthRequest="140"
-                HeightRequest="60"
-                CornerRadius="10"
-                BackgroundColor="MediumPurple"
-                TextColor="White"
-                FontSize="18"
-                Clicked="OnGoToTesteEscolherNotaClicked"/>
+        <HorizontalStackLayout HorizontalOptions="Center" 
+                               VerticalOptions="End" 
+                               Spacing="15" 
+                               Margin="0, 0, 0, 20">
+            <Button Text="Home"
+                    Clicked="OnGoToHomeClicked"
+                    WidthRequest="180"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"/>
+
+            <Button Text="Nota"
+                    Clicked="OnGoToTesteEscolherNotaClicked"
+                    WidthRequest="180"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"/>
+        </HorizontalStackLayout>
 
         <ImageButton x:Name="btnAjuda"
                      BackgroundColor="DeepSkyBlue"
-                     CornerRadius="50"
+                     CornerRadius="37"
                      WidthRequest="75"
                      HeightRequest="75"
                      HorizontalOptions="End"
                      VerticalOptions="Start"
-                     Margin="0, 0, 50, 0" 
+                     Margin="0, 20, 20, 0" 
                      Clicked="OnHelpButtonClicked">
             <ImageButton.Shadow>
                 <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />

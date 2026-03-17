@@ -43,6 +43,7 @@
                     TextColor="White"
                     FontSize="18"
                     Clicked="OnTesteEscolherClicked" />
+            
 
         </HorizontalStackLayout>
 

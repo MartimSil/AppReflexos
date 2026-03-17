@@ -10,14 +10,17 @@ namespace REFTEST.Pages.PT.Testes
         {
             InitializeComponent();
         }
+
         private async void OnGoToHomeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePage());
         }
+
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteEscolherAJUDA());
         }
+
         private async void OnGoToTesteEscolherNotaClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteEscolherNota());

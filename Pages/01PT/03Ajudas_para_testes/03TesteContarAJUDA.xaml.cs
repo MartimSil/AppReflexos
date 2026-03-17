@@ -12,7 +12,7 @@ public partial class TesteContarAJUDA : ContentPage
     {
         await Navigation.PushAsync(new HomePage());
     }
-    private async void OnTesteContarClicked(object sender, EventArgs e)
+    private async void OnGoToTesteContarClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new TesteContar());
     }
