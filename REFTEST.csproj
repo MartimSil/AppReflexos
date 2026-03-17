@@ -68,6 +68,24 @@
 	  <Compile Update="Pages\01MainPage.xaml.cs">
 	    <DependentUpon>01MainPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\01PT\04TesteMaster\06NotaMaster.xaml.cs">
+	    <DependentUpon>06NotaMaster.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\05NotaTestes\01TesteReacaoNota.xaml.cs">
+	    <DependentUpon>01TesteReacaoNota.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\05NotaTestes\02TesteVisaoNota.xaml.cs">
+	    <DependentUpon>02TesteVisaoNota.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\05NotaTestes\03TesteContarNota.xaml.cs">
+	    <DependentUpon>03TesteContarNota.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\05NotaTestes\04TesteEscolherNota.xaml.cs">
+	    <DependentUpon>04TesteEscolherNota.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\05NotaTestes\05TesteCoresNota.xaml.cs">
+	    <DependentUpon>05TesteCoresNota.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\Ajudas_para_testes\01TesteReacaoAJUDA.xaml.cs">
 	    <DependentUpon>01TesteReacaoAJUDA.xaml</DependentUpon>
 	  </Compile>
@@ -110,7 +128,40 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\02HomePage.xaml">
+	  <MauiXaml Update="Pages\01PT\04TesteMaster\06NotaMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\01TesteReacaoNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\02TesteVisaoNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\03TesteContarNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\04TesteEscolherNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\05TesteCoresNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\04TesteMaster\06NotaMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\01TesteReacaoNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\02TesteVisaoNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\03TesteContarNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\04TesteEscolherNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\05TesteCoresNota.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\02TesteVisaoAJUDA.xaml">
@@ -146,8 +197,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\04TesteMaster\" />
-	  <Folder Include="Pages\05Status\" />
+	  <Folder Include="Pages\01PT\06Status\" />
+	  <Folder Include="Pages\02ING\06Status\" />
 	</ItemGroup>
 
 </Project>

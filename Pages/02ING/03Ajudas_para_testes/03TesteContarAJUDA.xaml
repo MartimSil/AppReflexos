@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.ING.Ajudas_para_testes.TesteContarAJUDA"
+             Title="Tutorial de como Jogar">
+    
+    <Grid RowDefinitions="Auto, *, Auto" Padding="25">
+
+        <Label 
+            Grid.Row="0"
+            Text="O teu objetivo é simples, mas a execução exige uma precisão de mestre!"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Margin="0,0,0,15"/>
+
+        <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Always">
+            <VerticalStackLayout Spacing="15" Padding="5">
+                <Label 
+                    Text="Observa a Meta: Antes de começares, vê qual é o tempo objetivo definido pela aplicação (ex: 10 segundos)."
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label 
+                    Text="O Início: Clica no botão 'Começar'. O cronómetro aparecerá no ecrã e a contagem inicia-se do zero."
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label 
+                    Text="Quando o cronómetro atingir os 3 segundos, os números vão desaparecer!"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label 
+                    Text="A partir daqui, estás por tua conta. Mantém o ritmo e continua a contar mentalmente."
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label 
+                    Text="Clica no botão 'Parar' exatamente quando achares que atingiste o tempo objetivo."
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+
+                <Label 
+                    Text="O cronómetro volta a aparecer e revela quão perto (ou longe) ficaste do objetivo!"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout 
+            Grid.Row="2"
+            Spacing="20" 
+            HorizontalOptions="Center" 
+            VerticalOptions="End"
+            Margin="0,20,0,0">
+
+            <Button Text="Home"
+                    WidthRequest="140"
+                    HeightRequest="60"
+                    CornerRadius="10" 
+                    BackgroundColor="DeepSkyBlue"
+                    TextColor="White"
+                    FontSize="18"
+                    Clicked="OnGoToHomeClicked" />
+
+            <Button Text="Next"
+                    WidthRequest="140"
+                    HeightRequest="60"
+                    CornerRadius="10"
+                    BackgroundColor="MediumPurple"
+                    TextColor="White"
+                    FontSize="18"
+                    Clicked="OnTesteContarClicked" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

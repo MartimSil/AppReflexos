@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.PT.Testes.TesteReacao">
+
+    <Grid>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Reaction Test" 
+                   FontSize="32" />
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center" 
+                               VerticalOptions="End" 
+                               Spacing="10" 
+                               Margin="0, 0, 0, 20">
+
+            <Button Text="Ir para Home"
+                    Clicked="OnGoToHomeClicked"
+                    WidthRequest="180"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#512BD4"
+                    TextColor="White" />
+
+            <Button Text="Nota"
+                    Clicked="OnGoToTesteReacaoNotaClicked"
+                    WidthRequest="180"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <ImageButton x:Name="btnAjuda"
+                     BackgroundColor="DeepSkyBlue"
+                     CornerRadius="50"
+                     WidthRequest="75"
+                     HeightRequest="75"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Margin="0, 0, 50, 0" 
+                     Clicked="OnHelpButtonClicked">
+            <ImageButton.Shadow>
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+        </ImageButton>
+
+    </Grid>
+</ContentPage>
