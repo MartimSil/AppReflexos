@@ -27,7 +27,7 @@
                 BackgroundColor="MediumPurple"
                 TextColor="White"
                 FontSize="18"
-                Clicked="OnTesteCoresNotaClicked"/>
+                Clicked="OnGoToTesteCoresNotaClicked"/>
 
         <ImageButton x:Name="btnAjuda"
                      BackgroundColor="DeepSkyBlue"

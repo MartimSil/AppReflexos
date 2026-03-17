@@ -128,7 +128,7 @@ namespace REFTEST.Pages.ING.Testes
         {
             await Navigation.PushAsync(new TesteContarAJUDA());
         }
-        private async void OnGoToTestecontarNotaClicked(object sender, EventArgs e)
+        private async void OnGoToTesteContarNotaClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteContarNota());
         }
