@@ -17,7 +17,7 @@
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
             <Button Text="Main" BackgroundColor="DeepSkyBlue" TextColor="White" Clicked="OnMainPageClicked" />
             <!--<Button Text="Status" BackgroundColor="DeepSkyBlue" Clicked="OnMenuClicked" />-->
-            <!--<Button Text="Settings" BackgroundColor="DeepSkyBlue" Clicked="OnSettingsClicked" />-->
+            
         </HorizontalStackLayout>
 
     </Grid>

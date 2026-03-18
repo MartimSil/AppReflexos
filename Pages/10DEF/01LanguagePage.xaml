@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.DEF.LanguagePage">
+
+    <Grid RowDefinitions="*, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
+            <Button Text="Português" Clicked="OnMainPageClicked"/>
+            <Button Text="Ingles" Clicked="OnMainPageINGClicked"/>            
+        </VerticalStackLayout>
+        
+        <!--linhadeBaixo-->
+        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+            
+        </HorizontalStackLayout>
+
+    </Grid>
+</ContentPage>

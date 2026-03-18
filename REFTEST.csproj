@@ -86,6 +86,12 @@
 	  <Compile Update="Pages\01PT\05NotaTestes\05TesteCoresNota.xaml.cs">
 	    <DependentUpon>05TesteCoresNota.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\02ING\01Main\02HomePageING.xaml.cs">
+	    <DependentUpon>02HomePageING.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\01LanguagePage.xaml.cs">
+	    <DependentUpon>01LanguagePage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\Ajudas_para_testes\01TesteReacaoAJUDA.xaml.cs">
 	    <DependentUpon>01TesteReacaoAJUDA.xaml</DependentUpon>
 	  </Compile>
@@ -164,6 +170,9 @@
 	  <MauiXaml Update="Pages\02ING\05NotaTestes\05TesteCoresNota.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\01LanguagePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\02TesteVisaoAJUDA.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -199,6 +208,12 @@
 	<ItemGroup>
 	  <Folder Include="Pages\01PT\06Status\" />
 	  <Folder Include="Pages\02ING\06Status\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Pages\02ING\01Main\01MainPageING.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </None>
 	</ItemGroup>
 
 </Project>

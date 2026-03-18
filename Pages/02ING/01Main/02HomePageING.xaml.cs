@@ -1,20 +1,18 @@
 using REFTEST.Pages.ING.Testes;
 using REFTEST.Pages.ING.TesteMaster;
 
-
-
 namespace REFTEST.Pages.ING.Main
 {
-    public partial class HomePage : ContentPage
+    public partial class HomePageING : ContentPage
     {
-        public HomePage()
+        public HomePageING()
         {
             InitializeComponent();
         }
         //Pagina Principal
-        private async void OnMainPageClicked(object sender, EventArgs e)
+        private async void OnMainPageINGClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new MainPageING());
         }
 
         //Testes

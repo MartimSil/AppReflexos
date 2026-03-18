@@ -122,7 +122,7 @@ namespace REFTEST.Pages.ING.Testes
 
         private async void OnGoToHomeClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePageING());
         }
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {

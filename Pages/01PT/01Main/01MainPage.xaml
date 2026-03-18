@@ -19,6 +19,7 @@
                     Clicked="OnGoToHomeClicked"
                     SemanticProperties.HeadingLevel="Level1" />
 
-		</VerticalStackLayout>
+            <Button Text="Settings" Clicked="OnGoToDEFClicked" SemanticProperties.HeadingLevel="Level1"/>
+        </VerticalStackLayout>
 	</ScrollView>
 </ContentPage>

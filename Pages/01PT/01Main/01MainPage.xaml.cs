@@ -1,4 +1,4 @@
-﻿using Microsoft.Maui.Controls;
+﻿using REFTEST.Pages.DEF;
 
 namespace REFTEST.Pages.PT.Main
 {
@@ -12,6 +12,10 @@ namespace REFTEST.Pages.PT.Main
         private async void OnGoToHomeClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePage());
+        }
+        private async void OnGoToDEFClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LanguagePage());
         }
     }
 }

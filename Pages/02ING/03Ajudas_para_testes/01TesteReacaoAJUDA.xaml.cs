@@ -1,5 +1,6 @@
-using REFTEST.Pages.ING.Testes;
 using REFTEST.Pages.ING.Main;
+using REFTEST.Pages.ING.Testes;
+
 
 namespace REFTEST.Pages.ING.Ajudas_para_testes
 {
@@ -11,7 +12,7 @@ namespace REFTEST.Pages.ING.Ajudas_para_testes
         }
         private async void OnVoltarClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePageING());
         }
         private async void OnTesteReacaoClicked(object sender, EventArgs e)
         {
