@@ -11,7 +11,7 @@
                    FontSize="24"
                    FontAttributes="Bold" />
 
-			<Label Text="Welcome to our app"
+			<Label Text="Bem Vindo à nossa app"
                    Style="{StaticResource SubHeadline}"
                    SemanticProperties.HeadingLevel="Level1" />
 

@@ -20,10 +20,5 @@ namespace REFTEST.Pages.PT.Testes
         {
             await Navigation.PushAsync(new TesteCoresAJUDA());
         }
-
-        private async void OnGoToTesteCoresNotaClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteCoresNota());
-        }
     }
 }

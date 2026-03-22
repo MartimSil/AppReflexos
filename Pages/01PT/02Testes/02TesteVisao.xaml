@@ -9,10 +9,7 @@
                    FontSize="32" />
         </VerticalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="Center" 
-                               VerticalOptions="End" 
-                               Spacing="10" 
-                               Margin="0, 0, 0, 20">
+        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Spacing="10" Margin="0, 0, 0, 20">
 
             <Button Text="Ir para Home"
                     Clicked="OnGoToHomeClicked"
@@ -21,14 +18,7 @@
                     CornerRadius="25"
                     BackgroundColor="#512BD4"
                     TextColor="White" />
-
-            <Button Text="Nota"
-                    Clicked="OnGoToTesteVisaoNotaClicked"
-                    WidthRequest="180"
-                    HeightRequest="50"
-                    CornerRadius="25"
-                    BackgroundColor="#512BD4"
-                    TextColor="White"/>
+            
         </HorizontalStackLayout>
 
         <ImageButton x:Name="btnAjuda"

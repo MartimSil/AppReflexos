@@ -1,5 +1,3 @@
-using REFTEST.Pages.PT.Main;
-
 namespace REFTEST.Pages.PT.NotaTestes
 {
     public partial class TesteReacaoNota : ContentPage
@@ -8,9 +6,9 @@ namespace REFTEST.Pages.PT.NotaTestes
         {
             InitializeComponent();
         }
-        private async void OnGoToHomeClicked(object sender, EventArgs e)
+        private async void OnGoToHomePageNotasClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePageNotas());
         }
     }
 }

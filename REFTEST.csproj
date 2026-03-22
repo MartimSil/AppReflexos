@@ -62,6 +62,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\01PT\05NotaTestes\00HomePageNotas.xaml.cs">
+	    <DependentUpon>00HomePageNotas.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\02HomePage.xaml.cs">
 	    <DependentUpon>02HomePage.xaml</DependentUpon>
 	  </Compile>
@@ -150,6 +153,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\01PT\05NotaTestes\05TesteCoresNota.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\05NotaTestes\00HomePageNotas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\02ING\04TesteMaster\06NotaMaster.xaml">

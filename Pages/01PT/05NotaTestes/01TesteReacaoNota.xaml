@@ -5,12 +5,12 @@
 
     <Grid>
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Reaction Nota" 
+            <Label Text="Reaction Nota"
                    FontSize="32" />
         </VerticalStackLayout>
 
-        <Button Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
+        <Button Text="Voltar"
+                Clicked="OnGoToHomePageNotasClicked"
                 HorizontalOptions="Center" 
                 VerticalOptions="End"
                 WidthRequest="180"

@@ -38,14 +38,6 @@
                     CornerRadius="25"
                     BackgroundColor="#512BD4"
                     TextColor="White"/>
-            <Button x:Name="btnNota"
-                    Text="Nota"
-                    Clicked="OnGoToTesteContarNotaClicked"
-                    WidthRequest="140"
-                    HeightRequest="50"
-                    CornerRadius="25"
-                    BackgroundColor="#512BD4"
-                    TextColor="White"/>
 
         </HorizontalStackLayout>
 
@@ -60,7 +52,7 @@
                      Margin="0, 0, 10, 0" 
                      Clicked="OnHelpButtonClicked">
             <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5"/>
             </ImageButton.Shadow>
         </ImageButton>
 

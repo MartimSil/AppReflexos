@@ -9,8 +9,8 @@
                    FontSize="32" />
         </VerticalStackLayout>
 
-        <Button Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
+        <Button Text="Volatr"
+                Clicked="OnGoToHomePageNotasClicked"
                 HorizontalOptions="Center" 
                 VerticalOptions="End"
                 WidthRequest="180"

@@ -2,9 +2,29 @@ using REFTEST.Pages.PT.Main;
 using REFTEST.Pages.PT.Ajudas_para_testes;
 using REFTEST.Pages.PT.NotaTestes;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace REFTEST.Pages.PT.Testes
 {
+    public class RegistoTempo
+    {
+        public string Nome { get; set; } = string.Empty;
+        public int Alvo { get; set; }
+        public double TempoAtingido { get; set; }
+        public DateTime Data { get; set; }
+
+        public string CorResultado
+        {
+            get
+            {
+                double diferenca = Math.Abs(TempoAtingido - Alvo);
+                if (diferenca <= 0.3) return "#22C55E";
+                if (diferenca <= 1.0) return "#EAB308";
+                return "#EF4444";
+            }
+        }
+    }
+
     public partial class TesteContar : ContentPage
     {
         private readonly Stopwatch cronometro = new();
@@ -53,7 +73,7 @@ namespace REFTEST.Pages.PT.Testes
                 timer.Stop();
                 cronometro.Stop();
 
-                await VerificarResultado();
+                await VerificarEGuardarResultado();
 
                 cronometro.Reset();
                 lblTempo.Text = "00:00.00";
@@ -82,7 +102,7 @@ namespace REFTEST.Pages.PT.Testes
             catch (OperationCanceledException) { }
         }
 
-        private async Task VerificarResultado()
+        private async Task VerificarEGuardarResultado()
         {
             double tempoFinal = cronometro.Elapsed.TotalSeconds;
             double diferenca = Math.Abs(tempoFinal - numeroAlvo);
@@ -90,9 +110,34 @@ namespace REFTEST.Pages.PT.Testes
             string titulo = diferenca <= 0.5 ? "Espetacular!" :
                            (diferenca <= 1.5 ? "Quase!" : "Mais sorte na próxima...");
 
-            string mensagem = $"O alvo era {numeroAlvo}s e paraste aos {tempoFinal:F2}s.";
+            bool querGuardar = await DisplayAlertAsync(titulo, $"O alvo era {numeroAlvo}s e paraste aos {tempoFinal:F2}s.\n\nQueres guardar este resultado?", "Sim", "Não");
 
-            await DisplayAlertAsync(titulo, mensagem, "Tentar novamente");
+            if (querGuardar)
+            {
+                string iniciais = await DisplayPromptAsync("Guardar", "Introduz 3 letras para o nome:", "OK", "Cancelar", "ABC", 3);
+
+                if (!string.IsNullOrWhiteSpace(iniciais))
+                {
+                    if (iniciais.Length > 3) iniciais = iniciais[..3];
+                    iniciais = iniciais.ToUpper();
+
+                    string jsonAntigo = Preferences.Default.Get("historico_salvo", "[]");
+                    var historico = JsonSerializer.Deserialize<List<RegistoTempo>>(jsonAntigo) ?? [];
+
+                    historico.Add(new RegistoTempo
+                    {
+                        Nome = iniciais,
+                        Alvo = numeroAlvo,
+                        TempoAtingido = Math.Round(tempoFinal, 2),
+                        Data = DateTime.Now
+                    });
+
+                    string jsonNovo = JsonSerializer.Serialize(historico);
+                    Preferences.Default.Set("historico_salvo", jsonNovo);
+
+                    await DisplayAlertAsync("Sucesso", $"Resultado guardado para {iniciais}!", "OK");
+                }
+            }
         }
 
         private async void OnGoToHomeClicked(object sender, EventArgs e)
@@ -103,11 +148,6 @@ namespace REFTEST.Pages.PT.Testes
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteContarAJUDA());
-        }
-
-        private async void OnGoToTesteContarNotaClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteContarNota());
         }
     }
 }

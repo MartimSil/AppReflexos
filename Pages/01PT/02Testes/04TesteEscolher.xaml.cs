@@ -20,10 +20,5 @@ namespace REFTEST.Pages.PT.Testes
         {
             await Navigation.PushAsync(new TesteEscolherAJUDA());
         }
-
-        private async void OnGoToTesteEscolherNotaClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteEscolherNota());
-        }
     }
 }

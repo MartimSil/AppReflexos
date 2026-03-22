@@ -18,9 +18,5 @@ namespace REFTEST.Pages.PT.Testes
         {
             await Navigation.PushAsync(new TesteReacaoAJUDA());
         }
-        private async void OnGoToTesteReacaoNotaClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteReacaoNota());
-        }
     }
 }
