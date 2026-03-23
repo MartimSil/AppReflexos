@@ -98,7 +98,7 @@
                    HorizontalTextAlignment="Center"/>
 
             <Button x:Name="btnAcao"
-                    Text="Iniciar Corrida"
+                    Text="Iniciar"
                     Clicked="OnActionButtonClicked"
                     WidthRequest="220"
                     HeightRequest="220"

@@ -1,9 +1,17 @@
 using System.Diagnostics;
 using REFTEST.Pages.PT.Main;
 using REFTEST.Pages.PT.Ajudas_para_testes;
+using System.Text.Json;
 
 namespace REFTEST.Pages.PT.Testes
 {
+    public class RegistoReacao
+    {
+        public string Nome { get; set; } = string.Empty;
+        public long Milissegundos { get; set; }
+        public DateTime Data { get; set; }
+    }
+
     public partial class TesteReacao : ContentPage
     {
         private enum EstadoJogo { Parado, SequenciaLuzes, CorridaAMeio }
@@ -39,7 +47,7 @@ namespace REFTEST.Pages.PT.Testes
                     break;
 
                 case EstadoJogo.CorridaAMeio:
-                    PararCorrida();
+                    await PararCorrida();
                     break;
             }
         }
@@ -64,7 +72,7 @@ namespace REFTEST.Pages.PT.Testes
                     luz.BackgroundColor = _corLuzAcesa;
                 }
 
-                int tempoAtrasoAleatorio = _random.Next(1000, 4000);
+                int tempoAtrasoAleatorio = _random.Next(1500, 4000);
                 await Task.Delay(tempoAtrasoAleatorio, _cts.Token);
 
                 ApagarTodasAsLuzes();
@@ -78,11 +86,10 @@ namespace REFTEST.Pages.PT.Testes
             }
             catch (TaskCanceledException)
             {
-                // Jogo cancelado por queima de largada
             }
         }
 
-        private void PararCorrida()
+        private async Task PararCorrida()
         {
             _cronometro.Stop();
             _estadoAtual = EstadoJogo.Parado;
@@ -92,6 +99,34 @@ namespace REFTEST.Pages.PT.Testes
             lblResultado.Text = $"{tempoGasto} ms";
             btnAcao.Text = "Recomeçar";
             btnAcao.BackgroundColor = Colors.DarkSlateBlue;
+
+            bool querGuardar = await DisplayAlertAsync("Fim do Teste", $"Fizeste {tempoGasto} ms!\nQueres guardar este resultado?", "Sim", "Não");
+
+            if (querGuardar)
+            {
+                string iniciais = await DisplayPromptAsync("Guardar", "Introduz 3 letras para o nome:", "OK", "Cancelar", "ABC", 3);
+
+                if (!string.IsNullOrWhiteSpace(iniciais))
+                {
+                    if (iniciais.Length > 3) iniciais = iniciais[..3];
+                    iniciais = iniciais.ToUpper();
+
+                    string jsonAntigo = Preferences.Default.Get("historico_reacao", "[]");
+                    var historico = JsonSerializer.Deserialize<List<RegistoReacao>>(jsonAntigo) ?? [];
+
+                    historico.Add(new RegistoReacao
+                    {
+                        Nome = iniciais,
+                        Milissegundos = tempoGasto,
+                        Data = DateTime.Now
+                    });
+
+                    string jsonNovo = JsonSerializer.Serialize(historico);
+                    Preferences.Default.Set("historico_reacao", jsonNovo);
+
+                    await DisplayAlertAsync("Sucesso", $"Resultado guardado para {iniciais}!", "OK");
+                }
+            }
         }
 
         private void PartidaFalsa()
@@ -101,7 +136,7 @@ namespace REFTEST.Pages.PT.Testes
 
             ApagarTodasAsLuzes();
 
-            lblResultado.Text = "❌ QUEIMA!";
+            lblResultado.Text = "❌ ANTECIPADO!";
             btnAcao.Text = "Recomeçar";
             btnAcao.BackgroundColor = Colors.DarkSlateBlue;
         }
