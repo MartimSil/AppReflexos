@@ -212,11 +212,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Pages\01PT\06Status\" />
-	  <Folder Include="Pages\02ING\06Status\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Update="Pages\02ING\01Main\01MainPageING.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </None>

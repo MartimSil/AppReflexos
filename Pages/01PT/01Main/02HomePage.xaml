@@ -6,12 +6,12 @@
     <Grid RowDefinitions="*, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked"/>
-            <Button Text="Vision Test" Clicked="OnTesteVisaoClicked"/>
-            <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked"/>
-            <Button Text="Choice Test" Clicked="OnTesteEscolherClicked"/>
-            <Button Text="Color Test" Clicked="OnTesteCoresClicked"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked"/>
+            <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Vision Test" Clicked="OnTesteVisaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Choice Test" Clicked="OnTesteEscolherClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Color Test" Clicked="OnTesteCoresClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
