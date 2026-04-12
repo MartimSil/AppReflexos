@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.DEF.Languages.PORT">
+
+    <Grid RowDefinitions="*, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
+            <Button x:Name="btnPortuguese" Text="Português"
+                    BackgroundColor="Green" Clicked="OnPortugueseClicked"/>
+
+            <Button x:Name="btnEnglish" Text="Inglês" 
+                    Clicked="OnGoToMainPageINGClicked"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+            <Button Text="Voltar"
+                    Clicked="OnMainPageClicked"/>
+        </HorizontalStackLayout>
+
+    </Grid>
+</ContentPage>

@@ -1,6 +1,3 @@
-using System.Diagnostics;
-using REFTEST.Pages.PT.Testes;
-using REFTEST.Pages.PT.Main;
 namespace REFTEST.Pages.PT.Ajudas_para_testes;
 
 public partial class TesteCoresAJUDA : ContentPage
@@ -9,12 +6,19 @@ public partial class TesteCoresAJUDA : ContentPage
     {
         InitializeComponent();
     }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
+
+    protected override async void OnAppearing()
     {
-        await Navigation.PushAsync(new HomePage());
-    }
-    private async void OnTesteCoresClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteCores());
+        base.OnAppearing();
+
+        // O popup exato como na tua imagem
+        await DisplayAlertAsync("Como jogar",
+            "1. O jogo adiciona regras novas a cada 4 turnos.\n" +
+            "2. Lê a regra ativa no topo do ecrã.\n" +
+            "3. Clica no objeto apenas se ele cumprir a regra!",
+            "Entendido");
+
+        // Volta automaticamente para o teste após clicar em "Entendido"
+        await Navigation.PopAsync();
     }
 }

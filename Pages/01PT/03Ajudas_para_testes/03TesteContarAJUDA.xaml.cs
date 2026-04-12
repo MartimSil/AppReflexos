@@ -1,19 +1,15 @@
-using System.Diagnostics;
-using REFTEST.Pages.PT.Testes;
-using REFTEST.Pages.PT.Main;
 namespace REFTEST.Pages.PT.Ajudas_para_testes;
+
 public partial class TesteContarAJUDA : ContentPage
 {
-	public TesteContarAJUDA()
-	{
-		InitializeComponent();
-	}
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
+    public TesteContarAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        await Navigation.PushAsync(new HomePage());
-    }
-    private async void OnGoToTesteContarClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteContar());
+        base.OnAppearing();
+        await DisplayAlertAsync("Como jogar",
+            "1. Tenta parar o cronómetro no tempo alvo indicado.\n2. Aos 3 segundos, os números vão desaparecer.\n3. Continua a contar mentalmente e para no segundo certo!",
+            "Entendido");
+        await Navigation.PopAsync();
     }
 }

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.PT.Testes.TesteContar">
+             x:Class="REFTEST.Pages.PT.Testes.TesteContar"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="*, Auto, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" Spacing="20">
             <Label x:Name="lblInstrucao" 
-                   Text="Clique quando chegar o numero X" 
+                   Text="Clique quando chegar o numero X"
+                   TextColor="#26FFFF"
                    HorizontalOptions="Center" 
                    FontSize="20"/>
 
             <Label x:Name="lblTempo" 
-                   Text="00:00.00" 
+                   Text="00:00.00"
+                   TextColor="#26FFFF"
                    FontSize="60" 
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />

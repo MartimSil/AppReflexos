@@ -1,37 +1,61 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.PT.Testes.TesteEscolher">
+             x:Class="REFTEST.Pages.PT.Testes.TesteEscolher"
+             Shell.NavBarIsVisible="False">
 
     <Grid>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Test Choosing" FontSize="32" />
-        </VerticalStackLayout>
+        <Grid RowDefinitions="Auto, Auto, *, Auto, Auto" Padding="20" RowSpacing="15">
 
-        <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="End" Spacing="15" Margin="0, 0, 0, 20">
+            <ImageButton x:Name="btnAjuda"
+                         Grid.Row="0"
+                         BackgroundColor="DeepSkyBlue"
+                         CornerRadius="37"
+                         WidthRequest="75"
+                         HeightRequest="75"
+                         HorizontalOptions="End"
+                         VerticalOptions="Start"
+                         Clicked="OnHelpButtonClicked">
+                <ImageButton.Shadow>
+                    <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+                </ImageButton.Shadow>
+            </ImageButton>
 
-            <Button Text="Home"
-                    Clicked="OnGoToHomeClicked"
-                    WidthRequest="180"
-                    HeightRequest="50"
-                    CornerRadius="25"
-                    BackgroundColor="#512BD4"
-                    TextColor="White"/>
-            
-        </HorizontalStackLayout>
+            <VerticalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+                <Label x:Name="lblTimer" Text="Tempo: 1.5s" FontSize="20" HorizontalOptions="Center" TextColor="Orange" FontAttributes="Bold" />
+                <Label x:Name="lblPergunta" Text="Pronto?" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center" HeightRequest="100" />
+            </VerticalStackLayout>
 
-        <ImageButton x:Name="btnAjuda"
-                     BackgroundColor="DeepSkyBlue"
-                     CornerRadius="37"
-                     WidthRequest="75"
-                     HeightRequest="75"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="0, 20, 20, 0" 
-                     Clicked="OnHelpButtonClicked">
-            <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
-            </ImageButton.Shadow>
-        </ImageButton>
+            <Grid x:Name="GridBotoes" Grid.Row="2" ColumnDefinitions="125,125" RowDefinitions="125,125" ColumnSpacing="15" RowSpacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+                <Button x:Name="btn0" Grid.Row="0" Grid.Column="0" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
+                <Button x:Name="btn1" Grid.Row="0" Grid.Column="1" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
+                <Button x:Name="btn2" Grid.Row="1" Grid.Column="0" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
+                <Button x:Name="btn3" Grid.Row="1" Grid.Column="1" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
+            </Grid>
+
+            <VerticalStackLayout Grid.Row="3" Spacing="5" Margin="0,10">
+                <Label x:Name="lblPontos" Text="Acertos: 0" FontSize="20" HorizontalOptions="Center" TextColor="#2ECC71" FontAttributes="Bold" />
+                <Label x:Name="lblErros" Text="Erros: 0 / 5" FontSize="18" HorizontalOptions="Center" TextColor="#E74C3C" />
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center" VerticalOptions="End">
+                <Button Text="Ir para Home" Clicked="OnGoToHomeClicked" WidthRequest="180" HeightRequest="50" CornerRadius="25" BackgroundColor="#512BD4" TextColor="White" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+            <ContentView x:Name="OverlayStart" IsVisible="True">
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="30">
+                <Label x:Name="lblTitleOverlay" Text="Teste de Escolha" TextColor="White" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Button x:Name="btnStart" Text="COMEÇAR" 
+                        Clicked="OnStartClicked" 
+                        WidthRequest="220" 
+                        HeightRequest="80" 
+                        CornerRadius="40" 
+                        BackgroundColor="#2ECC71" 
+                        TextColor="White" 
+                        FontSize="24" 
+                        FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </ContentView>
     </Grid>
 </ContentPage>

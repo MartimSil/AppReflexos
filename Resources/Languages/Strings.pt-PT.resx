@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, ...</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, ...</value>
+  </resheader>
+  <data name="TesteEscolher_Title" xml:space="preserve">
+    <value>Teste de Escolha</value>
+  </data>
+  <data name="Start_Button" xml:space="preserve">
+    <value>COMEÇAR</value>
+  </data>
+  <data name="Timer_Label" xml:space="preserve">
+    <value>Tempo: {0:F1}s</value>
+  </data>
+  <data name="Ready_Text" xml:space="preserve">
+    <value>Pronto?</value>
+  </data>
+  <data name="Points_Label" xml:space="preserve">
+    <value>Acertos: {0}</value>
+  </data>
+  <data name="Errors_Label" xml:space="preserve">
+    <value>Erros: {0} / {1}</value>
+  </data>
+  <data name="GoHome_Button" xml:space="preserve">
+    <value>Ir para Home</value>
+  </data>
+  <data name="Time_Expired" xml:space="preserve">
+    <value>Tempo esgotado!</value>
+  </data>
+  <data name="Wrong_Color" xml:space="preserve">
+    <value>Cor errada!</value>
+  </data>
+  <data name="Game_Over_Title" xml:space="preserve">
+    <value>Fim do Jogo</value>
+  </data>
+  <data name="Restart_Button" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
+</root>

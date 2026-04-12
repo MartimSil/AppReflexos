@@ -1,20 +1,15 @@
-using System.Diagnostics;
-using REFTEST.Pages.PT.Testes;
-using REFTEST.Pages.PT.Main;
 namespace REFTEST.Pages.PT.Ajudas_para_testes;
 
 public partial class TesteVisaoAJUDA : ContentPage
 {
-    public TesteVisaoAJUDA()
+    public TesteVisaoAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        InitializeComponent();
-    }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePage());
-    }
-    private async void OnTesteVisaoClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteVisao());
+        base.OnAppearing();
+        await DisplayAlertAsync("Como jogar",
+            "1. Uma palavra aparecerá rapidamente no ecrã.\n2. Tenta memorizar se ela está escrita corretamente.\n3. Responde SIM ou NÃO após a palavra desaparecer.",
+            "Entendido");
+        await Navigation.PopAsync();
     }
 }

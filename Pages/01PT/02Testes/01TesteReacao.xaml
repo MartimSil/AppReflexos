@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.PT.Testes.TesteReacao">
+             x:Class="REFTEST.Pages.PT.Testes.TesteReacao"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="20" RowSpacing="20">
 
@@ -19,14 +20,14 @@
             </ImageButton.Shadow>
         </ImageButton>
 
-        <VerticalStackLayout Grid.Row="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
                 <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
                     </Border.StrokeShape>
-                    <Border x:Name="Luz1" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" StrokeThickness="0" BackgroundColor="#444">
+                    <Border x:Name="Luz1" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>
@@ -36,7 +37,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
                     </Border.StrokeShape>
-                    <Border x:Name="Luz2" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" StrokeThickness="0" BackgroundColor="#444">
+                    <Border x:Name="Luz2" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>
@@ -46,7 +47,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
                     </Border.StrokeShape>
-                    <Border x:Name="Luz3" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" StrokeThickness="0" BackgroundColor="#444">
+                    <Border x:Name="Luz3" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>
@@ -56,7 +57,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
                     </Border.StrokeShape>
-                    <Border x:Name="Luz4" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" StrokeThickness="0" BackgroundColor="#444">
+                    <Border x:Name="Luz4" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>
@@ -66,7 +67,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10"/>
                     </Border.StrokeShape>
-                    <Border x:Name="Luz5" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" StrokeThickness="0" BackgroundColor="#444">
+                    <Border x:Name="Luz5" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="20"/>
                         </Border.StrokeShape>

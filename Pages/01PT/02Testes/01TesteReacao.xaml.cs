@@ -1,6 +1,5 @@
-using System.Diagnostics;
 using REFTEST.Pages.PT.Main;
-using REFTEST.Pages.PT.Ajudas_para_testes;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace REFTEST.Pages.PT.Testes
@@ -29,10 +28,8 @@ namespace REFTEST.Pages.PT.Testes
             InitializeComponent();
         }
 
-        private List<Border> ObterLuzes()
-        {
-            return [Luz1, Luz2, Luz3, Luz4, Luz5];
-        }
+        // Sintaxe [] corrigindo o aviso IDE0028
+        private List<Border> ObterLuzes() => [Luz1, Luz2, Luz3, Luz4, Luz5];
 
         private async void OnActionButtonClicked(object sender, EventArgs e)
         {
@@ -41,13 +38,11 @@ namespace REFTEST.Pages.PT.Testes
                 case EstadoJogo.Parado:
                     await IniciarSequenciaF1();
                     break;
-
                 case EstadoJogo.SequenciaLuzes:
                     PartidaFalsa();
                     break;
-
                 case EstadoJogo.CorridaAMeio:
-                    await PararCorrida();
+                    FinalizarCorrida();
                     break;
             }
         }
@@ -59,37 +54,38 @@ namespace REFTEST.Pages.PT.Testes
 
             ApagarTodasAsLuzes();
             lblResultado.Text = "Espera...";
-            btnAcao.Text = "Não cliques!";
+            btnAcao.Text = "NÃO CLIQUES!";
             btnAcao.BackgroundColor = Colors.DarkRed;
 
             var luzes = ObterLuzes();
 
             try
             {
+                // Liga as luzes uma a uma a cada 1 segundo
                 foreach (var luz in luzes)
                 {
                     await Task.Delay(1000, _cts.Token);
                     luz.BackgroundColor = _corLuzAcesa;
                 }
 
+                // Espera um tempo aleatório entre 1.5s e 4s com todas as luzes acesas
                 int tempoAtrasoAleatorio = _random.Next(1500, 4000);
                 await Task.Delay(tempoAtrasoAleatorio, _cts.Token);
 
+                // Apaga tudo: É o sinal para clicar!
                 ApagarTodasAsLuzes();
                 _estadoAtual = EstadoJogo.CorridaAMeio;
 
                 lblResultado.Text = "RÁPIDO!";
-                btnAcao.Text = "CLICA!";
+                btnAcao.Text = "CLICA AGORA!";
                 btnAcao.BackgroundColor = Colors.Green;
 
                 _cronometro.Restart();
             }
-            catch (TaskCanceledException)
-            {
-            }
+            catch (TaskCanceledException) { }
         }
 
-        private async Task PararCorrida()
+        private void FinalizarCorrida()
         {
             _cronometro.Stop();
             _estadoAtual = EstadoJogo.Parado;
@@ -100,31 +96,33 @@ namespace REFTEST.Pages.PT.Testes
             btnAcao.Text = "Recomeçar";
             btnAcao.BackgroundColor = Colors.DarkSlateBlue;
 
-            bool querGuardar = await DisplayAlertAsync("Fim do Teste", $"Fizeste {tempoGasto} ms!\nQueres guardar este resultado?", "Sim", "Não");
+            GuardarResultado(tempoGasto);
+        }
+
+        private async void GuardarResultado(long tempo)
+        {
+            bool querGuardar = await DisplayAlertAsync("Fim do Teste", $"Fizeste {tempo} ms!\nQueres guardar este resultado?", "Sim", "Não");
 
             if (querGuardar)
             {
-                string iniciais = await DisplayPromptAsync("Guardar", "Introduz 3 letras para o nome:", "OK", "Cancelar", "ABC", 3);
+                string iniciais = await DisplayPromptAsync("Guardar", "Introduz as tuas iniciais (3 letras):", "OK", "Cancelar", "ABC", 3);
 
                 if (!string.IsNullOrWhiteSpace(iniciais))
                 {
-                    if (iniciais.Length > 3) iniciais = iniciais[..3];
-                    iniciais = iniciais.ToUpper();
+                    iniciais = iniciais.Length > 3 ? iniciais[..3].ToUpper() : iniciais.ToUpper();
 
-                    string jsonAntigo = Preferences.Default.Get("historico_reacao", "[]");
+                    string jsonAntigo = Preferences.Get("historico_reacao", "[]");
                     var historico = JsonSerializer.Deserialize<List<RegistoReacao>>(jsonAntigo) ?? [];
 
                     historico.Add(new RegistoReacao
                     {
                         Nome = iniciais,
-                        Milissegundos = tempoGasto,
+                        Milissegundos = tempo,
                         Data = DateTime.Now
                     });
 
-                    string jsonNovo = JsonSerializer.Serialize(historico);
-                    Preferences.Default.Set("historico_reacao", jsonNovo);
-
-                    await DisplayAlertAsync("Sucesso", $"Resultado guardado para {iniciais}!", "OK");
+                    Preferences.Set("historico_reacao", JsonSerializer.Serialize(historico));
+                    await DisplayAlertAsync("Sucesso", "Resultado guardado!", "OK");
                 }
             }
         }
@@ -133,7 +131,6 @@ namespace REFTEST.Pages.PT.Testes
         {
             _cts?.Cancel();
             _estadoAtual = EstadoJogo.Parado;
-
             ApagarTodasAsLuzes();
 
             lblResultado.Text = "❌ ANTECIPADO!";
@@ -143,8 +140,7 @@ namespace REFTEST.Pages.PT.Testes
 
         private void ApagarTodasAsLuzes()
         {
-            var luzes = ObterLuzes();
-            foreach (var luz in luzes)
+            foreach (var luz in ObterLuzes())
             {
                 luz.BackgroundColor = _corLuzApagada;
             }
@@ -159,7 +155,7 @@ namespace REFTEST.Pages.PT.Testes
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {
             _cts?.Cancel();
-            await Navigation.PushAsync(new TesteReacaoAJUDA());
+            await DisplayAlertAsync("Como jogar", "1. Clica em Iniciar.\n2. Espera que as 5 luzes fiquem vermelhas.\n3. Quando as luzes APAGAREM, clica o mais rápido que conseguires!", "Entendido");
         }
     }
 }

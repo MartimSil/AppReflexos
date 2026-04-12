@@ -92,8 +92,17 @@
 	  <Compile Update="Pages\02ING\01Main\02HomePageING.xaml.cs">
 	    <DependentUpon>02HomePageING.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\10DEF\01LanguagePage.xaml.cs">
-	    <DependentUpon>01LanguagePage.xaml</DependentUpon>
+	  <Compile Update="Pages\10DEF\01Main\02DefING.xaml.cs">
+	    <DependentUpon>02DefING.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\01Main\01DefPT.xaml.cs">
+	    <DependentUpon>01DefPT.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\Languages\02INGLES.xaml.cs">
+	    <DependentUpon>02INGLES.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\Languages\01PORT.xaml.cs">
+	    <DependentUpon>01PORT.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\Ajudas_para_testes\01TesteReacaoAJUDA.xaml.cs">
 	    <DependentUpon>01TesteReacaoAJUDA.xaml</DependentUpon>
@@ -176,7 +185,16 @@
 	  <MauiXaml Update="Pages\02ING\05NotaTestes\05TesteCoresNota.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\10DEF\01LanguagePage.xaml">
+	  <MauiXaml Update="Pages\10DEF\01Main\02DefING.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\Languages\02INGLES.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\Languages\01PORT.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\01Main\01DefPT.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Testes\Ajudas_para_testes\02TesteVisaoAJUDA.xaml">

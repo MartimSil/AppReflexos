@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.DEF.LanguagePage">
+             x:Class="REFTEST.Pages.DEF.Languages.INGLES">
 
     <Grid RowDefinitions="*, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Português" Clicked="OnMainPageClicked"/>
-            <Button Text="Ingles" Clicked="OnMainPageINGClicked"/>            
+            <Button Text="Português" 
+                    Clicked="OnMainPageClicked"/>
+
+            <Button x:Name="btnEnglishChoose" Text="Inglês" 
+                    BackgroundColor="Green" Clicked="OnEnglishClicked"/>            
         </VerticalStackLayout>
         
         <!--linhadeBaixo-->
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
-            
+            <Button Text="Back" 
+                    Clicked="OnMainPageINGClicked"/>
         </HorizontalStackLayout>
 
     </Grid>

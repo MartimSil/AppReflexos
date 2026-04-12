@@ -1,4 +1,4 @@
-﻿using REFTEST.Pages.DEF;
+﻿using REFTEST.Pages.DEF.Main;
 
 namespace REFTEST.Pages.PT.Main
 {
@@ -9,13 +9,8 @@ namespace REFTEST.Pages.PT.Main
             InitializeComponent();
         }
 
-        private async void OnGoToHomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new HomePage());
-        }
-        private async void OnGoToDEFClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new LanguagePage());
-        }
+        private async void OnGoToHomeClicked(object sender, EventArgs e) => await Navigation.PushAsync(new HomePage());
+
+        private async void OnGoToDefPTClicked(object sender, EventArgs e) => await Navigation.PushAsync(new DefPT());
     }
 }

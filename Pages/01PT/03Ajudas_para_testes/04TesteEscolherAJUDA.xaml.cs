@@ -1,20 +1,15 @@
-using System.Diagnostics;
-using REFTEST.Pages.PT.Testes;
-using REFTEST.Pages.PT.Main;
 namespace REFTEST.Pages.PT.Ajudas_para_testes;
 
 public partial class TesteEscolherAJUDA : ContentPage
 {
-    public TesteEscolherAJUDA()
+    public TesteEscolherAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        InitializeComponent();
-    }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePage());
-    }
-    private async void OnTesteEscolherClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteEscolher());
+        base.OnAppearing();
+        await DisplayAlertAsync("Como jogar",
+            "1. Lê o nome da cor escrito no centro.\n2. Ignora a cor com que a palavra está pintada.\n3. Clica no botão que tem a cor que leste!",
+            "Entendido");
+        await Navigation.PopAsync();
     }
 }

@@ -9,6 +9,7 @@
             <VerticalStackLayout Padding="30,0" Spacing="25" >
 
                 <Label Text="RefTest"
+                       TextColor="#26FFFF"
                        HorizontalTextAlignment="Center"
                        FontSize="24"
                        FontAttributes="Bold" />
@@ -18,11 +19,13 @@
                        Style="{StaticResource SubHeadline}"
                        SemanticProperties.HeadingLevel="Level1" />
                 
-                <Button Text="Ir para Home" Clicked="OnGoToHomeClicked" 
+                <Button Text="Ir para Home" 
+                        Clicked="OnGoToHomeClicked" 
                         SemanticProperties.HeadingLevel="Level1" 
                         MaximumWidthRequest="400"/>
                 
-                <Button Text="Settings" Clicked="OnGoToDEFClicked" 
+                <Button Text="Settings" 
+                        Clicked="OnGoToDefPTClicked" 
                         SemanticProperties.HeadingLevel="Level1" 
                         MaximumWidthRequest="400"/>
 
