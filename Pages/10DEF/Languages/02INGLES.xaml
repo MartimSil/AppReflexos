@@ -8,9 +8,9 @@
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
             <Button Text="Português" 
                     Clicked="OnMainPageClicked"/>
-
-            <Button x:Name="btnEnglishChoose" Text="Inglês" 
-                    BackgroundColor="Green" Clicked="OnEnglishClicked"/>            
+            
+            <Button Text="Ingles" 
+                    BackgroundColor="Green"/>            
         </VerticalStackLayout>
         
         <!--linhadeBaixo-->

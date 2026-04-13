@@ -18,10 +18,5 @@ namespace REFTEST.Pages.DEF.Languages
         {
             await Navigation.PushAsync(new MainPage());
         }
-        private async void OnPortugueseClicked(object sender, EventArgs e)
-        {
-            REFTEST.Helpers.Localization.SetCulture("pt-PT");
-            await Navigation.PushAsync(new MainPage());
-        }
 }
 }

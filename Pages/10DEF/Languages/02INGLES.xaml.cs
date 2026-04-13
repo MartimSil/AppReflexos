@@ -11,11 +11,6 @@ namespace REFTEST.Pages.DEF.Languages
         }
         private async void OnMainPageClicked(object sender, EventArgs e) => await Navigation.PushAsync(new MainPage());
         private async void OnMainPageINGClicked(object sender, EventArgs e) => await Navigation.PushAsync(new MainPageING());
-        private async void OnEnglishClicked(object sender, EventArgs e)
-        {
-            REFTEST.Helpers.Localization.SetCulture("en-US");
-            await Navigation.PushAsync(new MainPageING());
-        }
 
     }
 }

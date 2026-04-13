@@ -26,7 +26,7 @@
                 <Label x:Name="lblPergunta" Text="Pronto?" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center" HeightRequest="100" />
             </VerticalStackLayout>
 
-            <Grid x:Name="GridBotoes" Grid.Row="2" ColumnDefinitions="125,125" RowDefinitions="125,125" ColumnSpacing="15" RowSpacing="15" HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid Grid.Row="2" ColumnDefinitions="125,125" RowDefinitions="125,125" ColumnSpacing="15" RowSpacing="15" HorizontalOptions="Center" VerticalOptions="Center">
                 <Button x:Name="btn0" Grid.Row="0" Grid.Column="0" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
                 <Button x:Name="btn1" Grid.Row="0" Grid.Column="1" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
                 <Button x:Name="btn2" Grid.Row="1" Grid.Column="0" Clicked="OnButtonClicked" CornerRadius="15" IsEnabled="False"/>
@@ -43,10 +43,10 @@
             </HorizontalStackLayout>
         </Grid>
 
-            <ContentView x:Name="OverlayStart" IsVisible="True">
+        <ContentView x:Name="OverlayStart" IsVisible="True">
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="30">
-                <Label x:Name="lblTitleOverlay" Text="Teste de Escolha" TextColor="White" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Button x:Name="btnStart" Text="COMEÇAR" 
+                <Label Text="Teste de Escolha" TextColor="White" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Button Text="COMEÇAR" 
                         Clicked="OnStartClicked" 
                         WidthRequest="220" 
                         HeightRequest="80" 

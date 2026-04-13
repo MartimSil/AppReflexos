@@ -30,23 +30,11 @@ namespace REFTEST.Pages.PT.Testes
             botoes.Add(btn3);
 
             ConfigurarTimer();
-            // REMOVI o ProximaRonda() daqui para não começar sozinho
-            // Apply localized texts
-            lblTitleOverlay.Text = REFTEST.Helpers.Localization.GetString("TesteEscolher_Title");
-            btnStart.Text = REFTEST.Helpers.Localization.GetString("Start_Button");
-            lblTimer.Text = REFTEST.Helpers.Localization.GetString("Timer_Label", 1.5);
-            lblPergunta.Text = REFTEST.Helpers.Localization.GetString("Ready_Text");
-            lblPontos.Text = REFTEST.Helpers.Localization.GetString("Points_Label", 0);
-            lblErros.Text = REFTEST.Helpers.Localization.GetString("Errors_Label", 0, limiteErros);
-            // Go home button text
-            // find button by name? it is inline in XAML, so access by parent
-            // leave as is; other pages will use localization similarly
         }
 
-        // Este método controla o botão de Start
         private void OnStartClicked(object sender, EventArgs e)
         {
-            OverlayStart.IsVisible = false; // Aqui o erro deve desaparecer
+            OverlayStart.IsVisible = false;
 
             foreach (var btn in botoes)
                 btn.IsEnabled = true;
@@ -58,8 +46,7 @@ namespace REFTEST.Pages.PT.Testes
         {
             timer = Dispatcher.CreateTimer();
             timer.Interval = TimeSpan.FromMilliseconds(100);
-            timer.Tick += (s, e) =>
-            {
+            timer.Tick += (s, e) => {
                 tempoRestante -= 0.1;
                 lblTimer.Text = $"Tempo: {Math.Max(0, tempoRestante):F1}s";
 
@@ -129,7 +116,6 @@ namespace REFTEST.Pages.PT.Testes
                 lblErros.Text = "Erros: 0 / 5";
                 lblPontos.Text = "Acertos: 0";
 
-                // Mostrar o botão de Start novamente
                 OverlayStart.IsVisible = true;
                 foreach (var btn in botoes) btn.IsEnabled = false;
                 return;
