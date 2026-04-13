@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="REFTEST.Pages.ING.NotaTestes.HomePageNotas">
+
+    <Grid RowDefinitions="*, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
+            <Button Text="Reaction Test Nota" Clicked="OnTesteReacaoNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Vision Test Nota" Clicked="OnTesteVisaoNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Blind Counting Test Nota" Clicked="OnTesteContarNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Choice Test Nota" Clicked="OnTesteEscolherNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Color Test Nota" Clicked="OnTesteCoresNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Test Master" Clicked="OnTesteReacaoMasterNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+            <Button Text="Main" BackgroundColor="DeepSkyBlue" TextColor="White" Clicked="OnMainPageClicked" />
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

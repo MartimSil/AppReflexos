@@ -1,19 +1,15 @@
-using REFTEST.Pages.ING.Testes;
-using REFTEST.Pages.ING.Main;
-
 namespace REFTEST.Pages.ING.Ajudas_para_testes;
+
 public partial class TesteContarAJUDA : ContentPage
 {
-	public TesteContarAJUDA()
-	{
-		InitializeComponent();
-	}
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
+    public TesteContarAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        await Navigation.PushAsync(new HomePageING());
-    }
-    private async void OnTesteContarClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteContar());
+        base.OnAppearing();
+        await DisplayAlertAsync("How to play",
+            "1. Try to stop the stopwatch at the indicated target time.\n2. After 3 seconds, the numbers will disappear.\n3. Keep counting in your head and stop at the right second!",
+            "Got it");
+        await Navigation.PopAsync();
     }
 }

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.ING.Main.HomePageING">
+             x:Class="REFTEST.Pages.ING.Main.HomePageING"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="*, Auto" Padding="20">
 
-        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked"/>
-            <Button Text="Vision Test" Clicked="OnTesteVisaoClicked"/>
-            <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked"/>
-            <Button Text="Choice Test" Clicked="OnTesteEscolherClicked"/>
-            <Button Text="Color Test" Clicked="OnTesteCoresClicked"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked"/>
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center" MaximumWidthRequest="400">
+            <Button Text="Reaction Test" Clicked="OnTesteReacaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Vision Test" Clicked="OnTesteVisaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Choice Test" Clicked="OnTesteEscolherClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Color Test" Clicked="OnTesteCoresClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
             <Button Text="Main" BackgroundColor="DeepSkyBlue" TextColor="White" Clicked="OnMainPageINGClicked" />
-            <!--<Button Text="Status" BackgroundColor="DeepSkyBlue" Clicked="OnMenuClicked" />-->
-            <!--<Button Text="Settings" BackgroundColor="DeepSkyBlue" Clicked="OnSettingsClicked" />-->
+            <Button Text="Grade" BackgroundColor="DarkViolet" Clicked="OnHomePageNotasClicked"/>
         </HorizontalStackLayout>
 
     </Grid>

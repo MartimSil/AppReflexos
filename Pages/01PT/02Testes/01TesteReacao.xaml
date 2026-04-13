@@ -99,7 +99,7 @@
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="End">
-            <Button Text="Ir para Home"
+            <Button Text="Ir para Casa"
                     Clicked="OnGoToHomeClicked"
                     WidthRequest="180"
                     HeightRequest="50"

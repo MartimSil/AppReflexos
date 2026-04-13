@@ -26,10 +26,8 @@
                 <Button Text="Settings" 
                         Clicked="OnGoToDefINGClicked" 
                         SemanticProperties.HeadingLevel="Level1" 
-                        MaximumWidthRequest="400"/>
-
+                        MaximumWidthRequest="400"/>                
             </VerticalStackLayout>
-
         </ScrollView>
     </Grid>
 </ContentPage>

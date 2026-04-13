@@ -1,9 +1,18 @@
 using System;
 using Microsoft.Maui.Controls;
 using REFTEST.Pages.PT.Main;
+using System.Text.Json; // Necessário para o JsonSerializer
 
 namespace REFTEST.Pages.PT.Testes
 {
+    // Classe para o modelo de dados
+    public class RegistoCores
+    {
+        public string Nome { get; set; } = string.Empty;
+        public int Regras { get; set; }
+        public DateTime Data { get; set; }
+    }
+
     public partial class TesteCores : ContentPage
     {
         private bool _estaAcorrer = false;
@@ -136,7 +145,7 @@ namespace REFTEST.Pages.PT.Testes
             }
         }
 
-        private void FinalizarJogo(string motivo)
+        private async void FinalizarJogo(string motivo)
         {
             _estaAcorrer = false;
             _cts?.Cancel();
@@ -145,7 +154,36 @@ namespace REFTEST.Pages.PT.Testes
             lblFeedback.TextColor = Colors.Red;
             lblDescricaoRegra.Text = "";
 
-            DisplayAlertAsync("Fim do Teste", $"Regras acumuladas: {_regrasAtivas}", "OK");
+            // Pergunta se quer guardar
+            bool querGuardar = await DisplayAlertAsync("Fim do Teste",
+                $"{motivo}\nRegras acumuladas: {_regrasAtivas}\n\nQueres guardar este resultado?", "Sim", "Não");
+
+            if (querGuardar)
+            {
+                string iniciais = await DisplayPromptAsync("Guardar", "Introduz 3 letras para o teu nome:", "OK", "Cancelar", "ABC", 3);
+
+                if (!string.IsNullOrWhiteSpace(iniciais))
+                {
+                    if (iniciais.Length > 3) iniciais = iniciais[..3];
+                    iniciais = iniciais.ToUpper();
+
+                    // Lógica para guardar nas Preferences
+                    string jsonAntigo = Preferences.Default.Get("historico_cores", "[]");
+                    var historico = JsonSerializer.Deserialize<List<RegistoCores>>(jsonAntigo) ?? new();
+
+                    historico.Add(new RegistoCores
+                    {
+                        Nome = iniciais,
+                        Regras = _regrasAtivas,
+                        Data = DateTime.Now
+                    });
+
+                    string jsonNovo = JsonSerializer.Serialize(historico);
+                    Preferences.Default.Set("historico_cores", jsonNovo);
+
+                    await DisplayAlertAsync("Sucesso", $"Resultado guardado para {iniciais}!", "OK");
+                }
+            }
 
             btnAcao.IsEnabled = true;
             btnAcao.Opacity = 1;

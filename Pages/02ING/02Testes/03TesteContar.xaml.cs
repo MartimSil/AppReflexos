@@ -1,16 +1,34 @@
 using REFTEST.Pages.ING.Main;
 using REFTEST.Pages.ING.Ajudas_para_testes;
-using REFTEST.Pages.ING.NotaTestes;
-
 using System.Diagnostics;
+using System.Text.Json;
+
 namespace REFTEST.Pages.ING.Testes
 {
+    public class RegistoTempo
+    {
+        public string Nome { get; set; } = string.Empty;
+        public int Alvo { get; set; }
+        public double TempoAtingido { get; set; }
+        public DateTime Data { get; set; }
+
+        public string CorResultado
+        {
+            get
+            {
+                double diferenca = Math.Abs(TempoAtingido - Alvo);
+                if (diferenca <= 0.3) return "#22C55E";
+                if (diferenca <= 1.0) return "#EAB308";
+                return "#EF4444";
+            }
+        }
+    }
+
     public partial class TesteContar : ContentPage
     {
         private readonly Stopwatch cronometro = new();
         private readonly IDispatcherTimer timer;
         private int numeroAlvo;
-
         private CancellationTokenSource? _cts;
 
         public TesteContar()
@@ -30,44 +48,38 @@ namespace REFTEST.Pages.ING.Testes
         {
             Random random = new();
             numeroAlvo = random.Next(5, 16);
-            lblInstrucao.Text = $"Clique quando chegar aos {numeroAlvo} seg";
+            lblInstrucao.Text = $"Click when it reaches {numeroAlvo} sec"; // Traduzido
         }
 
         private async void OnIniciarResetClicked(object sender, EventArgs e)
         {
             if (!cronometro.IsRunning)
             {
-                // Parar qualquer contagem anterior de esconder o texto
                 _cts?.Cancel();
                 _cts = new CancellationTokenSource();
 
                 cronometro.Start();
                 timer.Start();
 
-                btnIniciarParar.Text = "Parar";
+                btnIniciarParar.Text = "Stop"; // Traduzido
                 btnIniciarParar.BackgroundColor = Colors.Red;
 
-                // Inicia a tarefa de esconder e passa o token
                 _ = EsconderCronometroAposTempo(3000, _cts.Token);
             }
             else
             {
-                // Cancela o esconder assim que clicas em Parar
                 _cts?.Cancel();
-
                 timer.Stop();
                 cronometro.Stop();
 
-                // 1. Mostrar resultado
-                await VerificarResultado();
+                await VerificarEGuardarResultado();
 
-                // 2. Reset total
                 cronometro.Reset();
                 lblTempo.Text = "00:00.00";
                 lblTempo.Opacity = 1;
                 lblTempo.IsVisible = true;
 
-                btnIniciarParar.Text = "Iniciar";
+                btnIniciarParar.Text = "Start"; // Traduzido
                 btnIniciarParar.BackgroundColor = Colors.Green;
 
                 SortearNovoNumero();
@@ -86,51 +98,59 @@ namespace REFTEST.Pages.ING.Testes
                     lblTempo.IsVisible = false;
                 }
             }
-            catch (OperationCanceledException)
-            {
-                //A Tarefa foi cancelada porque o user clicou em parar/reiniciar
-            }
+            catch (OperationCanceledException) { }
         }
 
-        private async Task VerificarResultado()
+        private async Task VerificarEGuardarResultado()
         {
             double tempoFinal = cronometro.Elapsed.TotalSeconds;
-
             double diferenca = Math.Abs(tempoFinal - numeroAlvo);
 
-            string titulo;
-            string mensagem;
+            // Títulos traduzidos
+            string titulo = diferenca <= 0.5 ? "Amazing!" :
+                           (diferenca <= 1.5 ? "Close!" : "Better luck next time...");
 
-            if (diferenca <= 0.5)
-            {
-                titulo = "Espetacular!";
-                mensagem = $"Parabéns! O alvo era {numeroAlvo}s e tu paraste aos {tempoFinal:F2}s.";
-            }
-            else if (diferenca <= 1.5)
-            {
-                titulo = "Quase!";
-                mensagem = $"Estiveste muito perto! O alvo era {numeroAlvo}s e paraste aos {tempoFinal:F2}s.";
-            }
-            else
-            {
-                titulo = "Mais sorte na próxima...";
-                mensagem = $"Ficaste longe do objetivo. O alvo era {numeroAlvo}s, mas paraste aos {tempoFinal:F2}s.";
-            }
+            // Mensagem do alerta traduzida
+            bool querGuardar = await DisplayAlertAsync(titulo, $"The target was {numeroAlvo}s and you stopped at {tempoFinal:F2}s.\n\nDo you want to save this result?", "Yes", "No");
 
-            await this.DisplayAlertAsync(titulo, mensagem, "Tentar novamente");
+            if (querGuardar)
+            {
+                // Prompts traduzidos
+                string iniciais = await DisplayPromptAsync("Save", "Enter 3 letters for your name:", "OK", "Cancel", "ABC", 3);
+
+                if (!string.IsNullOrWhiteSpace(iniciais))
+                {
+                    if (iniciais.Length > 3) iniciais = iniciais[..3];
+                    iniciais = iniciais.ToUpper();
+
+                    // Mantive a chave "historico_salvo" para os rankings ficarem juntos
+                    string jsonAntigo = Preferences.Default.Get("historico_salvo", "[]");
+                    var historico = JsonSerializer.Deserialize<List<RegistoTempo>>(jsonAntigo) ?? [];
+
+                    historico.Add(new RegistoTempo
+                    {
+                        Nome = iniciais,
+                        Alvo = numeroAlvo,
+                        TempoAtingido = Math.Round(tempoFinal, 2),
+                        Data = DateTime.Now
+                    });
+
+                    string jsonNovo = JsonSerializer.Serialize(historico);
+                    Preferences.Default.Set("historico_salvo", jsonNovo);
+
+                    await DisplayAlertAsync("Success", $"Result saved for {iniciais}!", "OK"); // Traduzido
+                }
+            }
         }
 
-        private async void OnGoToHomeClicked(object sender, EventArgs e)
+        private async void OnGoToHomePageINGClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePageING());
         }
+
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteContarAJUDA());
-        }
-        private async void OnGoToTesteContarNotaClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteContarNota());
         }
     }
 }

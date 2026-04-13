@@ -1,20 +1,17 @@
-using REFTEST.Pages.PT.Ajudas_para_testes;
+namespace REFTEST.Pages.PT.TesteMaster;
 
-namespace REFTEST.Pages.PT.TesteMaster
+public partial class TesteEscolherMaster : ContentPage
 {
-    public partial class TesteEscolherMaster : ContentPage
+    private int erros = 0, acertos = 0;
+
+    private async void ProcessarEscolha(bool correta)
     {
-        public TesteEscolherMaster()
+        if (correta) acertos++; else erros++;
+        if (erros >= 5)
         {
-            InitializeComponent();
-        }
-        private async void OnGoToTesteCoresMasterClicked(object sender, EventArgs e)
-        {
+            MasterControl.Scores[3] = Math.Min(acertos, 20);
             await Navigation.PushAsync(new TesteCoresMaster());
         }
-        private async void OnHelpButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteEscolherAJUDA());
-        }
+        else ProximaRonda();
     }
 }

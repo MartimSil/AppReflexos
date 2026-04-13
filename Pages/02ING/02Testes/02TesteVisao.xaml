@@ -1,29 +1,102 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.ING.Testes.TesteVisao">
+             x:Class="REFTEST.Pages.ING.Testes.TesteVisao"
+             Shell.NavBarIsVisible="False">
 
-    <Grid>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Vision Test" 
-                   FontSize="32" />
-        </VerticalStackLayout>
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20" RowSpacing="20">
 
-        <HorizontalStackLayout HorizontalOptions="Center" 
-                               VerticalOptions="End" 
-                               Spacing="10" 
-                               Margin="0, 0, 0, 20">
+        <ImageButton x:Name="btnAjuda"
+                     Grid.Row="0"
+                     BackgroundColor="DeepSkyBlue"
+                     CornerRadius="37"
+                     WidthRequest="75"
+                     HeightRequest="75"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Clicked="OnHelpButtonClicked">
+            <ImageButton.Shadow>
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+        </ImageButton>
 
-            <Button Text="Ir para Home"
-                    Clicked="OnGoToHomeClicked"
-                    WidthRequest="180"
-                    HeightRequest="50"
-                    CornerRadius="25"
-                    BackgroundColor="#512BD4"
-                    TextColor="White" />
+        <AbsoluteLayout Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill">
 
-            <Button Text="Nota"
-                    Clicked="OnGoToTesteVisaoNotaClicked"
+            <Label x:Name="PontuacaoLabel" 
+                   Text="Score: 0 | Word: 0/10" 
+                   FontSize="16" 
+                   TextColor="Gray"
+                   AbsoluteLayout.LayoutBounds="0.5, 0, 1, 40" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional" 
+                   HorizontalTextAlignment="Center" />
+
+            <Label x:Name="PalavraLabel" 
+                   FontSize="50" 
+                   FontAttributes="Bold" 
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   AbsoluteLayout.LayoutBounds="0.5, 0.4, 300, 100" 
+                   AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+            <Label x:Name="FeedbackLabel" 
+                   FontSize="22" 
+                   FontAttributes="Bold"
+                   AbsoluteLayout.LayoutBounds="0.5, 0.6, 1, 40"
+                   AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+                   HorizontalTextAlignment="Center" />
+
+            <VerticalStackLayout x:Name="LayoutBotoes" 
+                                 IsVisible="False" 
+                                 Spacing="15"
+                                 AbsoluteLayout.LayoutBounds="0.5, 0.85, 1, -1" 
+                                 AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
+
+                <Label Text="Was the word correct?" 
+                       HorizontalOptions="Center" 
+                       TextColor="White" 
+                       FontSize="18"/>
+
+                <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Button Text="YES" 
+                            Clicked="OnSimClicked" 
+                            BackgroundColor="#2ECC71" 
+                            WidthRequest="120" 
+                            HeightRequest="50"
+                            CornerRadius="10" 
+                            FontAttributes="Bold"/>
+                    <Button Text="NO" 
+                            Clicked="OnNaoClicked" 
+                            BackgroundColor="#EF4444" 
+                            WidthRequest="120" 
+                            HeightRequest="50"
+                            CornerRadius="10" 
+                            FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <Button x:Name="BtnProxima" 
+                    Text="Start Test" 
+                    Clicked="OnGerarPalavraClicked" 
+                    BackgroundColor="#2196F3" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    CornerRadius="30"
+                    WidthRequest="250"
+                    HeightRequest="60"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.75, 250, 60"
+                    AbsoluteLayout.LayoutFlags="PositionProportional">
+                <Button.Shadow>
+                    <Shadow Brush="Black" Offset="0,5" Radius="10" Opacity="0.5" />
+                </Button.Shadow>
+            </Button>
+
+        </AbsoluteLayout>
+
+        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="End">
+            <Button Text="Go Home"
+                    Clicked="OnGoToHomePageINGClicked"
                     WidthRequest="180"
                     HeightRequest="50"
                     CornerRadius="25"
@@ -31,18 +104,5 @@
                     TextColor="White"/>
         </HorizontalStackLayout>
 
-        <ImageButton x:Name="btnAjuda"
-                     BackgroundColor="DeepSkyBlue"
-                     CornerRadius="50"
-                     WidthRequest="75"
-                     HeightRequest="75"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="0, 0, 50, 0" 
-                     Clicked="OnHelpButtonClicked">
-            <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
-            </ImageButton.Shadow>
-        </ImageButton>
     </Grid>
 </ContentPage>

@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.ING.Testes.TesteCores">
+             x:Class="REFTEST.Pages.ING.Testes.TesteCores"
+             Shell.NavBarIsVisible="False">
 
-    <Grid>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Test Colors" 
-                   FontSize="32" />
-        </VerticalStackLayout>
+    <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="20" RowSpacing="15">
 
-        <Button Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
-                HorizontalOptions="Center" 
-                VerticalOptions="End"
-                WidthRequest="180"
-                HeightRequest="50"
-                CornerRadius="25"
-                Margin="0, 0, 0, 20"
-                BackgroundColor="#512BD4"
-                TextColor="White" />
-        
-        <Button Text="Nota"
-                WidthRequest="140"
-                HeightRequest="60"
-                CornerRadius="10"
-                BackgroundColor="MediumPurple"
-                TextColor="White"
-                FontSize="18"
-                Clicked="OnGoToTestecoresNotaClicked"/>
-
-        <ImageButton x:Name="btnAjuda"
-                     BackgroundColor="DeepSkyBlue"
-                     CornerRadius="50"
-                     WidthRequest="75"
-                     HeightRequest="75"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="0, 0, 50, 0" 
-                     Clicked="OnHelpButtonClicked">
+        <ImageButton x:Name="btnAjuda" Grid.Row="0" BackgroundColor="DeepSkyBlue" CornerRadius="37"
+                     WidthRequest="70" HeightRequest="70" HorizontalOptions="End" Clicked="OnHelpButtonClicked">
             <ImageButton.Shadow>
                 <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
             </ImageButton.Shadow>
         </ImageButton>
+
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" Spacing="15">
+            <Label x:Name="lblRegrasAtivas" Text="Rules: 0/10" TextColor="Gray" FontSize="18" HorizontalTextAlignment="Center"/>
+            <Label x:Name="lblDescricaoRegra" Text="" TextColor="Gold" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" HeightRequest="30"/>
+            <Label x:Name="lblFeedback" Text="Ready?" TextColor="White" FontSize="26" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+            <Border x:Name="AlvoVisual" WidthRequest="180" HeightRequest="180" BackgroundColor="Transparent" StrokeThickness="2" Stroke="White" HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle x:Name="FormaAlvo" CornerRadius="0"/>
+                </Border.StrokeShape>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAlvoTapped" />
+                </Border.GestureRecognizers>
+            </Border>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2" HorizontalOptions="Center">
+            <Button x:Name="btnAcao" Text="Start" Clicked="OnActionButtonClicked" WidthRequest="200" HeightRequest="70" CornerRadius="35" BackgroundColor="#2ECC71" TextColor="White" FontSize="22" FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="End">
+            <Button Text="Go Home" Clicked="OnGoToHomeClicked" WidthRequest="180" HeightRequest="50" CornerRadius="25" BackgroundColor="#512BD4" TextColor="White"/>
+        </HorizontalStackLayout>
+
     </Grid>
 </ContentPage>

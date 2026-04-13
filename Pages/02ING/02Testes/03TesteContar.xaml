@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.ING.Testes.TesteContar">
+             x:Class="REFTEST.Pages.ING.Testes.TesteContar"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="*, Auto, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" Spacing="20">
             <Label x:Name="lblInstrucao" 
-                   Text="Clique quando chegar o numero X" 
+                   Text="Click when it reaches number X"
+                   TextColor="#26FFFF"
                    HorizontalOptions="Center" 
                    FontSize="20"/>
 
             <Label x:Name="lblTempo" 
-                   Text="00:00.00" 
+                   Text="00:00.00"
+                   TextColor="#26FFFF"
                    FontSize="60" 
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
@@ -20,7 +23,7 @@
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center" Margin="0,0,0,100">
             <Button x:Name="btnIniciarParar" 
-                    Text="Iniciar" 
+                    Text="Start" 
                     Clicked="OnIniciarResetClicked" 
                     BackgroundColor="Green" 
                     WidthRequest="120" 
@@ -28,27 +31,18 @@
                     FontSize="20"/>
         </HorizontalStackLayout>
 
-        <Button Grid.Row="2"
-                Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
-                HorizontalOptions="Center" 
-                WidthRequest="180"
-                HeightRequest="50"
-                CornerRadius="25"
-                Margin="0, 0, 0, 20" 
-                BackgroundColor="#512BD4"
-                TextColor="White"/>
-        
-        <Button Text="Nota"
-                Clicked="OnGoToTesteContarNotaClicked"
-                HorizontalOptions="Center" 
-                WidthRequest="180"
-                HeightRequest="50"
-                CornerRadius="25"
-                Margin="0, 0, 0, 20" 
-                BackgroundColor="#512BD4"
-                TextColor="White"/>
-                
+        <HorizontalStackLayout Grid.Row="2" Spacing="15" HorizontalOptions="Center" Margin="0, 0, 0, 20">
+
+            <Button x:Name="btnNext"
+                    Text="Home"
+                    Clicked="OnGoToHomeClicked"
+                    WidthRequest="140"
+                    HeightRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"/>
+
+        </HorizontalStackLayout>
 
         <ImageButton x:Name="btnAjuda"
                      Grid.RowSpan="3"
@@ -61,8 +55,9 @@
                      Margin="0, 0, 10, 0" 
                      Clicked="OnHelpButtonClicked">
             <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5"/>
             </ImageButton.Shadow>
         </ImageButton>
+
     </Grid>
 </ContentPage>

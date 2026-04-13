@@ -1,8 +1,17 @@
 using REFTEST.Pages.PT.Ajudas_para_testes;
 using REFTEST.Pages.PT.Main;
+using System.Text.Json;
 
 namespace REFTEST.Pages.PT.Testes
 {
+    // Modelo para guardar os dados exatamente como nos outros testes
+    public class RegistoEscolher
+    {
+        public string Nome { get; set; } = string.Empty;
+        public int Pontos { get; set; }
+        public DateTime Data { get; set; }
+    }
+
     public partial class TesteEscolher : ContentPage
     {
         private int erros = 0;
@@ -109,8 +118,36 @@ namespace REFTEST.Pages.PT.Testes
 
             if (erros >= limiteErros)
             {
-                await DisplayAlertAsync("Fim do Jogo", $"{motivo}\nAcertaste {pontos} vezes.", "Reiniciar");
+                // Lógica de guardar igual aos outros códigos
+                bool querGuardar = await DisplayAlertAsync("Fim do Teste", $"{motivo}\nFizeste {pontos} pontos!\nQueres guardar este resultado?", "Sim", "Não");
 
+                if (querGuardar)
+                {
+                    string iniciais = await DisplayPromptAsync("Guardar", "Introduz 3 letras para o nome:", "OK", "Cancelar", "ABC", 3);
+
+                    if (!string.IsNullOrWhiteSpace(iniciais))
+                    {
+                        if (iniciais.Length > 3) iniciais = iniciais[..3];
+                        iniciais = iniciais.ToUpper();
+
+                        string jsonAntigo = Preferences.Default.Get("historico_escolha", "[]");
+                        var historico = JsonSerializer.Deserialize<List<RegistoEscolher>>(jsonAntigo) ?? [];
+
+                        historico.Add(new RegistoEscolher
+                        {
+                            Nome = iniciais,
+                            Pontos = pontos,
+                            Data = DateTime.Now
+                        });
+
+                        string jsonNovo = JsonSerializer.Serialize(historico);
+                        Preferences.Default.Set("historico_escolha", jsonNovo);
+
+                        await DisplayAlertAsync("Sucesso", $"Resultado guardado para {iniciais}!", "OK");
+                    }
+                }
+
+                // Reiniciar o jogo
                 erros = 0;
                 pontos = 0;
                 lblErros.Text = "Erros: 0 / 5";

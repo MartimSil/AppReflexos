@@ -1,49 +1,112 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.ING.Testes.TesteReacao">
+             x:Class="REFTEST.Pages.ING.Testes.TesteReacao"
+             Shell.NavBarIsVisible="False">
 
-    <Grid>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Reaction Test" 
-                   FontSize="32" />
+    <Grid RowDefinitions="Auto, *, Auto, Auto" Padding="20" RowSpacing="20">
+
+        <ImageButton x:Name="btnAjuda"
+                     Grid.Row="0"
+                     BackgroundColor="DeepSkyBlue"
+                     CornerRadius="37"
+                     WidthRequest="75"
+                     HeightRequest="75"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     Clicked="OnHelpButtonClicked">
+            <ImageButton.Shadow>
+                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
+            </ImageButton.Shadow>
+        </ImageButton>
+
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Border x:Name="Luz1" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </Border>
+                <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Border x:Name="Luz2" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </Border>
+                <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Border x:Name="Luz3" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </Border>
+                <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Border x:Name="Luz4" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </Border>
+                <Border WidthRequest="60" HeightRequest="80" BackgroundColor="#111111" StrokeThickness="2" Stroke="#333333">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10"/>
+                    </Border.StrokeShape>
+                    <Border x:Name="Luz5" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#444">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20"/>
+                        </Border.StrokeShape>
+                    </Border>
+                </Border>
+            </HorizontalStackLayout>
+
+            <Label x:Name="lblResultado" 
+                   Text="0 ms" 
+                   TextColor="White"
+                   FontSize="60" 
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Center"/>
+
+            <Button x:Name="btnAcao"
+                    Text="Start"
+                    Clicked="OnActionButtonClicked"
+                    WidthRequest="220"
+                    HeightRequest="220"
+                    CornerRadius="110"
+                    BackgroundColor="#2ECC71"
+                    TextColor="White"
+                    FontSize="26"
+                    FontAttributes="Bold">
+                <Button.Shadow>
+                    <Shadow Brush="Black" Offset="0,10" Radius="15" Opacity="0.6" />
+                </Button.Shadow>
+            </Button>
         </VerticalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="Center" 
-                               VerticalOptions="End" 
-                               Spacing="10" 
-                               Margin="0, 0, 0, 20">
-
-            <Button Text="Ir para Home"
+        <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="End">
+            <Button Text="Go to Home"
                     Clicked="OnGoToHomeClicked"
-                    WidthRequest="180"
-                    HeightRequest="50"
-                    CornerRadius="25"
-                    BackgroundColor="#512BD4"
-                    TextColor="White" />
-
-            <Button Text="Nota"
-                    Clicked="OnGoToTesteReacaoNotaClicked"
                     WidthRequest="180"
                     HeightRequest="50"
                     CornerRadius="25"
                     BackgroundColor="#512BD4"
                     TextColor="White"/>
         </HorizontalStackLayout>
-
-        <ImageButton x:Name="btnAjuda"
-                     BackgroundColor="DeepSkyBlue"
-                     CornerRadius="50"
-                     WidthRequest="75"
-                     HeightRequest="75"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="0, 0, 50, 0" 
-                     Clicked="OnHelpButtonClicked">
-            <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
-            </ImageButton.Shadow>
-        </ImageButton>
 
     </Grid>
 </ContentPage>

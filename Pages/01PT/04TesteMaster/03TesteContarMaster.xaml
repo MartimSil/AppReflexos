@@ -1,57 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.PT.TesteMaster.TesteContarMaster">
+             x:Class="REFTEST.Pages.PT.TesteMaster.TesteContarMaster"
+             Shell.NavBarIsVisible="False">
 
-    <Grid RowDefinitions="*, Auto, Auto" Padding="20">
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+        <Label Text="MASTER: TESTE 3/5" HorizontalOptions="Center" TextColor="Gray" FontSize="14"/>
 
-        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" Spacing="20">
+        <VerticalStackLayout Grid.Row="1" VerticalOptions="Center" Spacing="20">
             <Label x:Name="lblInstrucao" 
-                   Text="Clique quando chegar o numero X" 
+                   Text="Para o cronómetro aos 10 segundos!"
+                   TextColor="#26FFFF"
                    HorizontalOptions="Center" 
-                   FontSize="20"/>
+                   FontSize="22"
+                   HorizontalTextAlignment="Center"/>
 
             <Label x:Name="lblTempo" 
-                   Text="00:00.00" 
-                   FontSize="60" 
+                   Text="00:00.00"
+                   TextColor="White"
+                   FontSize="70" 
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
-        </VerticalStackLayout>
 
-        <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center" Margin="0,0,0,100">
             <Button x:Name="btnIniciarParar" 
-                    Text="Iniciar" 
+                    Text="INICIAR" 
                     Clicked="OnIniciarResetClicked" 
                     BackgroundColor="Green" 
-                    WidthRequest="120" 
-                    HeightRequest="60"
-                    FontSize="20"/>
-        </HorizontalStackLayout>
-
-        <Button Grid.Row="2"
-                Text="Next"
-                Clicked="OnGoToTesteEscolherMasterClicked"
-                HorizontalOptions="Center" 
-                WidthRequest="180"
-                HeightRequest="50"
-                CornerRadius="25"
-                Margin="0, 0, 0, 20" 
-                BackgroundColor="#512BD4"
-                TextColor="White"/>
-
-        <ImageButton x:Name="btnAjuda"
-                     Grid.RowSpan="3"
-                     BackgroundColor="DeepSkyBlue"
-                     CornerRadius="37"
-                     WidthRequest="75"
-                     HeightRequest="75"
-                     HorizontalOptions="End"
-                     VerticalOptions="Start"
-                     Margin="0, 0, 10, 0" 
-                     Clicked="OnHelpButtonClicked">
-            <ImageButton.Shadow>
-                <Shadow Brush="Black" Offset="2,2" Radius="5" Opacity="0.5" />
-            </ImageButton.Shadow>
-        </ImageButton>
+                    WidthRequest="220" 
+                    HeightRequest="80"
+                    CornerRadius="40"
+                    FontSize="24"
+                    FontAttributes="Bold"/>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

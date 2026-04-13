@@ -62,6 +62,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\01PT\02Testes\RegistoMaster.xaml.cs">
+	    <DependentUpon>RegistoMaster.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\01PT\04TesteMaster\00MasterControl.xaml.cs">
+	    <DependentUpon>00MasterControl.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\01PT\05NotaTestes\00HomePageNotas.xaml.cs">
 	    <DependentUpon>00HomePageNotas.xaml</DependentUpon>
 	  </Compile>
@@ -91,6 +97,9 @@
 	  </Compile>
 	  <Compile Update="Pages\02ING\01Main\02HomePageING.xaml.cs">
 	    <DependentUpon>02HomePageING.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\02ING\05NotaTestes\00HomePageNotas.xaml.cs">
+	    <DependentUpon>00HomePageNotas.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\10DEF\01Main\02DefING.xaml.cs">
 	    <DependentUpon>02DefING.xaml</DependentUpon>
@@ -146,7 +155,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\01PT\02Testes\RegistoMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\01PT\04TesteMaster\06NotaMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\01PT\04TesteMaster\00MasterControl.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\01PT\05NotaTestes\01TesteReacaoNota.xaml">
@@ -168,6 +183,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\02ING\04TesteMaster\06NotaMaster.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\02ING\05NotaTestes\00HomePageNotas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\02ING\05NotaTestes\01TesteReacaoNota.xaml">

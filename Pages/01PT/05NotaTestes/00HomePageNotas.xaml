@@ -6,12 +6,12 @@
     <Grid RowDefinitions="*, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Reaction Test Nota" Clicked="OnTesteReacaoNotaClicked"/>
-            <Button Text="Vision Test Nota" Clicked="OnTesteVisaoNotaClicked"/>
-            <Button Text="Blind Counting Test Nota" Clicked="OnTesteContarNotaClicked"/>
-            <Button Text="Choice Test Nota" Clicked="OnTesteEscolherNotaClicked"/>
-            <Button Text="Color Test Nota" Clicked="OnTesteCoresNotaClicked"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterNotaClicked"/>
+            <Button Text="Teste Reação Notas" Clicked="OnTesteReacaoNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Visão Notas" Clicked="OnTesteVisaoNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Contar as Cega Notas" Clicked="OnTesteContarNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Escolha Notas" Clicked="OnTesteEscolherNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Cores Notas" Clicked="OnTesteCoresNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">

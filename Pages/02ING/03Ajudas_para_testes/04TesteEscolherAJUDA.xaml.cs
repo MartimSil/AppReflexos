@@ -1,19 +1,15 @@
-using REFTEST.Pages.ING.Testes;
-using REFTEST.Pages.ING.Main;
 namespace REFTEST.Pages.ING.Ajudas_para_testes;
 
 public partial class TesteEscolherAJUDA : ContentPage
 {
-    public TesteEscolherAJUDA()
+    public TesteEscolherAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        InitializeComponent();
-    }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePageING());
-    }
-    private async void OnTesteEscolherClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteEscolher());
+        base.OnAppearing();
+        await DisplayAlertAsync("How to play",
+            "1. Read the name of the color written in the center.\n2. Ignore the color the word is painted with.\n3. Click the button that has the color you read!",
+            "Got it");
+        await Navigation.PopAsync();
     }
 }

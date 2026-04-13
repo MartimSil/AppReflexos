@@ -97,6 +97,7 @@ namespace REFTEST.Pages.PT.Testes
             btnAcao.BackgroundColor = Colors.DarkSlateBlue;
 
             GuardarResultado(tempoGasto);
+
         }
 
         private async void GuardarResultado(long tempo)
@@ -155,7 +156,7 @@ namespace REFTEST.Pages.PT.Testes
         private async void OnHelpButtonClicked(object sender, EventArgs e)
         {
             _cts?.Cancel();
-            await DisplayAlertAsync("Como jogar", "1. Clica em Iniciar.\n2. Espera que as 5 luzes fiquem vermelhas.\n3. Quando as luzes APAGAREM, clica o mais rápido que conseguires!", "Entendido");
+            await DisplayAlertAsync("Como jogar", "1. Clica em Iniciar.\n2. Espera que as 5 luzes fiquem vermelhas.\n3. Quando as luzes APAGAREM, clica o mais rápido que conseguires!", "Entendido?");
         }
     }
 }

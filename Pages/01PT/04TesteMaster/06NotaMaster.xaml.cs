@@ -1,17 +1,12 @@
-using REFTEST.Pages.PT.Main;
+namespace REFTEST.Pages.PT.TesteMaster;
 
-namespace REFTEST.Pages.PT.TesteMaster
+public partial class NotaMaster : ContentPage
 {
-    public partial class NotaMaster : ContentPage
+    public NotaMaster()
     {
-        public NotaMaster()
-        {
-            InitializeComponent();
-        }
-        private async void OnGoToHomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new HomePage());
-        }
+        InitializeComponent();
+        lblTotal.Text = MasterControl.CalcularTotal().ToString() + "/100";
     }
-}
 
+    private async void OnFinalizar(object sender, EventArgs e) => await Navigation.PopToRootAsync();
+}

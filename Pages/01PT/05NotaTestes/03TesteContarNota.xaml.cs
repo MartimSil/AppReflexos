@@ -58,7 +58,7 @@ namespace REFTEST.Pages.PT.NotaTestes
 
         private async void OnGoToHomePageNotasClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePageNotas());
         }
     }
 }

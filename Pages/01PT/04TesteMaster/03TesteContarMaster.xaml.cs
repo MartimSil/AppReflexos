@@ -1,130 +1,32 @@
-using REFTEST.Pages.PT.Ajudas_para_testes;
 using System.Diagnostics;
+namespace REFTEST.Pages.PT.TesteMaster;
 
-namespace REFTEST.Pages.PT.TesteMaster
+public partial class TesteContarMaster : ContentPage
 {
-    public partial class TesteContarMaster : ContentPage
+    private readonly Stopwatch _sw = new();
+    private readonly IDispatcherTimer _timer;
+
+    public TesteContarMaster()
     {
-        private readonly Stopwatch cronometro = new();
-        private readonly IDispatcherTimer timer;
-        private int numeroAlvo;
+        InitializeComponent();
+        _timer = Dispatcher.CreateTimer();
+        _timer.Interval = TimeSpan.FromMilliseconds(10);
+        _timer.Tick += (s, e) => lblTempo.Text = _sw.Elapsed.ToString(@"mm\:ss\.ff");
+    }
 
-        private CancellationTokenSource? _cts;
-
-        public TesteContarMaster()
+    private async void OnIniciarResetClicked(object sender, EventArgs e)
+    {
+        if (!_sw.IsRunning)
         {
-            InitializeComponent();
-            SortearNovoNumero();
-
-            timer = Dispatcher.CreateTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(10);
-            timer.Tick += (s, e) =>
-            {
-                lblTempo.Text = cronometro.Elapsed.ToString(@"mm\:ss\.ff");
-            };
+            _sw.Start(); _timer.Start(); btnIniciarParar.Text = "PARAR";
+            await Task.Delay(3000); lblTempo.FadeTo(0, 500);
         }
-
-        private void SortearNovoNumero()
+        else
         {
-            Random random = new();
-            numeroAlvo = random.Next(5, 16);
-            lblInstrucao.Text = $"Clique quando chegar aos {numeroAlvo} seg";
-        }
-
-        private async void OnIniciarResetClicked(object sender, EventArgs e)
-        {
-            if (!cronometro.IsRunning)
-            {
-                // Parar qualquer contagem anterior de esconder o texto
-                _cts?.Cancel();
-                _cts = new CancellationTokenSource();
-
-                cronometro.Start();
-                timer.Start();
-
-                btnIniciarParar.Text = "Parar";
-                btnIniciarParar.BackgroundColor = Colors.Red;
-
-                // Inicia a tarefa de esconder e passa o token
-                _ = EsconderCronometroAposTempo(3000, _cts.Token);
-            }
-            else
-            {
-                // Cancela o esconder assim que clicas em Parar
-                _cts?.Cancel();
-
-                timer.Stop();
-                cronometro.Stop();
-
-                // 1. Mostrar resultado
-                await VerificarResultado();
-
-                // 2. Reset total
-                cronometro.Reset();
-                lblTempo.Text = "00:00.00";
-                lblTempo.Opacity = 1;
-                lblTempo.IsVisible = true;
-
-                btnIniciarParar.Text = "Iniciar";
-                btnIniciarParar.BackgroundColor = Colors.Green;
-
-                SortearNovoNumero();
-            }
-        }
-
-        private async Task EsconderCronometroAposTempo(int milissegundos, CancellationToken token)
-        {
-            try
-            {
-                await Task.Delay(milissegundos, token);
-
-                if (cronometro.IsRunning && !token.IsCancellationRequested)
-                {
-                    await lblTempo.FadeToAsync(0, 500);
-                    lblTempo.IsVisible = false;
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                //A Tarefa foi cancelada porque o user clicou em parar/reiniciar
-            }
-        }
-
-        private async Task VerificarResultado()
-        {
-            double tempoFinal = cronometro.Elapsed.TotalSeconds;
-
-            double diferenca = Math.Abs(tempoFinal - numeroAlvo);
-
-            string titulo;
-            string mensagem;
-
-            if (diferenca <= 0.5)
-            {
-                titulo = "Espetacular!";
-                mensagem = $"Parabéns! O alvo era {numeroAlvo}s e tu paraste aos {tempoFinal:F2}s.";
-            }
-            else if (diferenca <= 1.5)
-            {
-                titulo = "Quase!";
-                mensagem = $"Estiveste muito perto! O alvo era {numeroAlvo}s e paraste aos {tempoFinal:F2}s.";
-            }
-            else
-            {
-                titulo = "Mais sorte na próxima...";
-                mensagem = $"Ficaste longe do objetivo. O alvo era {numeroAlvo}s, mas paraste aos {tempoFinal:F2}s.";
-            }
-
-            await this.DisplayAlertAsync(titulo, mensagem, "Tentar novamente");
-        }
-
-        private async void OnGoToTesteEscolherMasterClicked(object sender, EventArgs e)
-        {
+            _sw.Stop(); _timer.Stop();
+            double dif = Math.Abs(_sw.Elapsed.TotalSeconds - 10);
+            MasterControl.Scores[2] = dif < 0.2 ? 20 : (dif < 0.5 ? 15 : (dif < 1.0 ? 10 : 5));
             await Navigation.PushAsync(new TesteEscolherMaster());
-        }
-        private async void OnHelpButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteContarAJUDA());
         }
     }
 }

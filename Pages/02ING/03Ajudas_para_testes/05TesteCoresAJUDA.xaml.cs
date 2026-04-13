@@ -1,5 +1,3 @@
-using REFTEST.Pages.ING.Testes;
-using REFTEST.Pages.ING.Main;
 namespace REFTEST.Pages.ING.Ajudas_para_testes;
 
 public partial class TesteCoresAJUDA : ContentPage
@@ -8,12 +6,19 @@ public partial class TesteCoresAJUDA : ContentPage
     {
         InitializeComponent();
     }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
+
+    protected override async void OnAppearing()
     {
-        await Navigation.PushAsync(new HomePageING());
-    }
-    private async void OnTesteCoresClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteCores());
+        base.OnAppearing();
+
+        // Popup translated to English
+        await DisplayAlertAsync("How to play",
+            "1. The game adds new rules every 4 turns.\n" +
+            "2. Read the active rule at the top of the screen.\n" +
+            "3. Click the object only if it fulfills the rule!",
+            "Got it");
+
+        // Automatically returns to the test after clicking "Got it"
+        await Navigation.PopAsync();
     }
 }

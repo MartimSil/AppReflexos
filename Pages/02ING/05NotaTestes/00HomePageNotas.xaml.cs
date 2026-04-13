@@ -1,0 +1,49 @@
+using REFTEST.Pages.ING.Main;
+using REFTEST.Pages.ING.TesteMaster;
+
+namespace REFTEST.Pages.ING.NotaTestes
+{
+    public partial class HomePageNotas : ContentPage
+    {
+        public HomePageNotas()
+        {
+            InitializeComponent();
+        }
+        //Pagina Principal
+        private async void OnMainPageClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPageING());
+        }
+
+        //Testes
+        private async void OnTesteReacaoNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteReacaoNota());
+        }
+
+        private async void OnTesteVisaoNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteVisaoNota());
+        }
+
+        private async void OnTesteContarNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteContarNota());
+        }
+
+        private async void OnTesteEscolherNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteEscolherNota());
+        }
+
+        private async void OnTesteCoresNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteCoresNota());
+        }
+        //Teste Master
+        private async void OnTesteReacaoMasterNotaClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TesteReacaoMaster());
+        }
+    }
+}

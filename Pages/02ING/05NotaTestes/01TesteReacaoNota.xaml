@@ -1,23 +1,87 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:testes="clr-namespace:REFTEST.Pages.ING.Testes"
              x:Class="REFTEST.Pages.ING.NotaTestes.TesteReacaoNota">
 
-    <Grid>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Reaction Nota" 
-                   FontSize="32" />
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Margin="0,0,0,15">
+            <Label Text="Reaction Test Ranking" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   TextColor="#512BD4"/>
         </VerticalStackLayout>
 
-        <Button Text="Ir para Home"
-                Clicked="OnGoToHomeClicked"
+        <CollectionView Grid.Row="1" x:Name="listaNotas" Margin="0,0,0,10">
+            <CollectionView.EmptyView>
+                <Label Text="No results saved yet." 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontSize="16" 
+                       TextColor="Gray"/>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="testes:RegistoReacao">
+
+                    <Border Margin="0,5" Padding="15" BackgroundColor="#F0F0F8">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+                        <Border.Stroke>
+                            <SolidColorBrush Color="#512BD4"/>
+                        </Border.Stroke>
+
+                        <Grid ColumnDefinitions="*, *, Auto">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding Nome}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   VerticalOptions="Center"/>
+
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Milissegundos, StringFormat='{0} ms'}" 
+                                   FontAttributes="Bold"
+                                   FontSize="18"
+                                   TextColor="#2ECC71" 
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+
+                            <HorizontalStackLayout Grid.Column="2" 
+                                                   VerticalOptions="Center" 
+                                                   HorizontalOptions="End"
+                                                   Padding="5">
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnApagarRegistroClicked" 
+                                                          CommandParameter="{Binding .}"/>
+                                </HorizontalStackLayout.GestureRecognizers>
+
+                                <Label Text="&#215;" 
+                                       TextColor="#EF4444" 
+                                       FontSize="24" 
+                                       FontAttributes="Bold" 
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Margin="0,-3,0,0"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="2"
+                Text="Back"
+                Clicked="OnGoToHomePageNotasClicked"
                 HorizontalOptions="Center" 
-                VerticalOptions="End"
                 WidthRequest="180"
                 HeightRequest="50"
                 CornerRadius="25"
-                Margin="0, 0, 0, 20"
+                Margin="0, 10, 0, 10"
                 BackgroundColor="#512BD4"
-                TextColor="White"/>
+                TextColor="White" />
     </Grid>
 </ContentPage>

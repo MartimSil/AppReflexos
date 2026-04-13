@@ -1,20 +1,15 @@
-using REFTEST.Pages.ING.Main;
-using REFTEST.Pages.ING.Testes;
-
 namespace REFTEST.Pages.ING.Ajudas_para_testes;
 
 public partial class TesteVisaoAJUDA : ContentPage
 {
-    public TesteVisaoAJUDA()
+    public TesteVisaoAJUDA() => InitializeComponent();
+
+    protected override async void OnAppearing()
     {
-        InitializeComponent();
-    }
-    private async void OnGoToHomeClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new HomePageING());
-    }
-    private async void OnTesteVisaoClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new TesteVisao());
+        base.OnAppearing();
+        await DisplayAlertAsync("How to play",
+            "1. A word will appear quickly on the screen.\n2. Try to memorize if it is written correctly.\n3. Answer YES or NO after the word disappears.",
+            "Got it");
+        await Navigation.PopAsync();
     }
 }
