@@ -1,5 +1,4 @@
 using REFTEST.Pages.PT.Testes;
-using REFTEST.Pages.PT.TesteMaster;
 using REFTEST.Pages.PT.NotaTestes;
 
 namespace REFTEST.Pages.PT.Main
@@ -41,11 +40,7 @@ namespace REFTEST.Pages.PT.Main
         {
             await Navigation.PushAsync(new TesteCores());
         }
-        //Teste Master
-        private async void OnTesteReacaoMasterClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TesteReacaoMaster());
-        }
+
         //Butão Notas
         private async void OnHomePageNotasClicked(object sender, EventArgs e)
         {

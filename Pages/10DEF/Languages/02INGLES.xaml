@@ -6,17 +6,14 @@
     <Grid RowDefinitions="*, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Português" 
-                    Clicked="OnMainPageClicked"/>
-            
-            <Button Text="Ingles" 
-                    BackgroundColor="Green"/>            
+            <Button Text="Português" Clicked="OnMainPageClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+
+            <Button Text="Ingles" BackgroundColor="Green" MaximumWidthRequest="400" TextColor="#0E1A2A"/>            
         </VerticalStackLayout>
         
         <!--linhadeBaixo-->
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
-            <Button Text="Back" 
-                    Clicked="OnMainPageINGClicked"/>
+            <Button Text="Back" Clicked="OnMainPageINGClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </HorizontalStackLayout>
 
     </Grid>

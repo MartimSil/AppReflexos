@@ -12,12 +12,12 @@
                        TextColor="#26FFFF"
                        HorizontalTextAlignment="Center"
                        FontSize="24"
-                       FontAttributes="Bold" />
+                       FontAttributes="Bold"/>
 
                 <Label Text="Bem Vindo à nossa app"
                        TextColor="#26FFFF"
                        Style="{StaticResource SubHeadline}"
-                       SemanticProperties.HeadingLevel="Level1" />
+                       SemanticProperties.HeadingLevel="Level1"/>
 
                 <Button Text="Ir para Home" 
                         Clicked="OnGoToHomeClicked" 

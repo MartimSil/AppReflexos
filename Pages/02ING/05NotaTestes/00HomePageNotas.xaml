@@ -11,7 +11,6 @@
             <Button Text="Blind Counting Test Nota" Clicked="OnTesteContarNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Choice Test Nota" Clicked="OnTesteEscolherNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Color Test Nota" Clicked="OnTesteCoresNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
-            <Button Text="Test Master" Clicked="OnTesteReacaoMasterNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">

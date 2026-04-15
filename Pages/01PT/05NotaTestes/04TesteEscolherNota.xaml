@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:testes="clr-namespace:REFTEST.Pages.PT.Testes"
-             x:Class="REFTEST.Pages.PT.NotaTestes.TesteEscolherNota">
+             x:Class="REFTEST.Pages.PT.NotaTestes.TesteEscolherNota"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto, *, Auto" Padding="20">
 

@@ -6,16 +6,13 @@
     <Grid RowDefinitions="*, Auto" Padding="20">
 
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <Button Text="Português"
-                    BackgroundColor="Green"/>
+            <Button Text="Português" BackgroundColor="Green" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
 
-            <Button Text="Ingles" 
-                    Clicked="OnGoToMainPageINGClicked"/>
+            <Button Text="Ingles" Clicked="OnGoToMainPageINGClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
-            <Button Text="Voltar"
-                    Clicked="OnMainPageClicked"/>
+            <Button Text="Voltar" Clicked="OnMainPageClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </HorizontalStackLayout>
 
     </Grid>

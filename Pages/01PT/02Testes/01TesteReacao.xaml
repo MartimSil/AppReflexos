@@ -100,7 +100,7 @@
 
         <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" VerticalOptions="End">
             <Button Text="Ir para Casa"
-                    Clicked="OnGoToHomeClicked"
+                    Clicked="OnGoToHomePageClicked"
                     WidthRequest="180"
                     HeightRequest="50"
                     CornerRadius="25"

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="REFTEST.Pages.PT.NotaTestes.HomePageNotas">
+             x:Class="REFTEST.Pages.PT.NotaTestes.HomePageNotas"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="*, Auto" Padding="20">
 
@@ -11,7 +12,6 @@
             <Button Text="Teste Contar as Cega Notas" Clicked="OnTesteContarNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Teste Escolha Notas" Clicked="OnTesteEscolherNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Teste Cores Notas" Clicked="OnTesteCoresNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterNotaClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">

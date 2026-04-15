@@ -38,6 +38,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
+	  <RunAOTCompilation>True</RunAOTCompilation>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
+	  <RunAOTCompilation>False</RunAOTCompilation>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -62,12 +70,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\01PT\02Testes\RegistoMaster.xaml.cs">
-	    <DependentUpon>RegistoMaster.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\01PT\04TesteMaster\00MasterControl.xaml.cs">
-	    <DependentUpon>00MasterControl.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\01PT\05NotaTestes\00HomePageNotas.xaml.cs">
 	    <DependentUpon>00HomePageNotas.xaml</DependentUpon>
 	  </Compile>
@@ -76,9 +78,6 @@
 	  </Compile>
 	  <Compile Update="Pages\01MainPage.xaml.cs">
 	    <DependentUpon>01MainPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Pages\01PT\04TesteMaster\06NotaMaster.xaml.cs">
-	    <DependentUpon>06NotaMaster.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\01PT\05NotaTestes\01TesteReacaoNota.xaml.cs">
 	    <DependentUpon>01TesteReacaoNota.xaml</DependentUpon>
@@ -106,6 +105,12 @@
 	  </Compile>
 	  <Compile Update="Pages\10DEF\01Main\01DefPT.xaml.cs">
 	    <DependentUpon>01DefPT.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\01Main\06SobreNosING.xaml.cs">
+	    <DependentUpon>06SobreNosING.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\10DEF\01Main\05SobreNosPT.xaml.cs">
+	    <DependentUpon>05SobreNosPT.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\10DEF\Languages\02INGLES.xaml.cs">
 	    <DependentUpon>02INGLES.xaml</DependentUpon>
@@ -155,15 +160,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\01PT\02Testes\RegistoMaster.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\01PT\04TesteMaster\06NotaMaster.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\01PT\04TesteMaster\00MasterControl.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\01PT\05NotaTestes\01TesteReacaoNota.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -180,9 +176,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\01PT\05NotaTestes\00HomePageNotas.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\02ING\04TesteMaster\06NotaMaster.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\02ING\05NotaTestes\00HomePageNotas.xaml">
@@ -204,6 +197,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\10DEF\01Main\02DefING.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\01Main\06SobreNosING.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\10DEF\01Main\05SobreNosPT.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\10DEF\Languages\02INGLES.xaml">

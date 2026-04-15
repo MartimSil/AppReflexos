@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:REFTEST.Pages.PT.Testes"
              x:Class="REFTEST.Pages.PT.NotaTestes.TesteContarNota"
              Shell.NavBarIsVisible="False">
 
@@ -23,7 +24,7 @@
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="models:RegistoTempo">
 
                     <Border Margin="0,5" Padding="15" BackgroundColor="#F0F0F8">
                         <Border.StrokeShape>

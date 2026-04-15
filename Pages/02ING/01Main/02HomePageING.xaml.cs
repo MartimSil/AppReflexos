@@ -1,5 +1,5 @@
 using REFTEST.Pages.ING.Testes;
-using REFTEST.Pages.ING.TesteMaster;
+//using REFTEST.Pages.ING.TesteMaster;
 using REFTEST.Pages.ING.NotaTestes;
 
 namespace REFTEST.Pages.ING.Main
@@ -42,11 +42,10 @@ namespace REFTEST.Pages.ING.Main
             await Navigation.PushAsync(new TesteCores());
         }
         //Teste Master
-        private async void OnTesteReacaoMasterClicked(object sender, EventArgs e)
+        /*private async void OnTesteReacaoMasterClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TesteReacaoMaster());
-        }
-        //Butão Notas
+        }*/
         private async void OnHomePageNotasClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HomePageNotas());

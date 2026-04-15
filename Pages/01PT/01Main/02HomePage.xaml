@@ -9,10 +9,10 @@
         <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
             <Button Text="Teste de Reação" Clicked="OnTesteReacaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Teste de Visão" Clicked="OnTesteVisaoClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
-            <Button Text="Teste de Contagem Cega" Clicked="OnTesteContarClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <Button Text="Teste de Contagem Cegas" Clicked="OnTesteContarClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Teste de Escolha" Clicked="OnTesteEscolherClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Teste de Cores" Clicked="OnTesteCoresClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <!--<Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>-->
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">

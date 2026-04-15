@@ -12,7 +12,7 @@
             <Button Text="Blind Counting Test" Clicked="OnTesteContarClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Choice Test" Clicked="OnTesteEscolherClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
             <Button Text="Color Test" Clicked="OnTesteCoresClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
-            <Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>
+            <!--<Button Text="Teste Master" Clicked="OnTesteReacaoMasterClicked" MaximumWidthRequest="400" TextColor="#0E1A2A"/>-->
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
